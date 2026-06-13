@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Voidwreck",
+			"Path": "..\\Source\\Voidwreck.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "VoidwreckEditor",
+			"Path": "..\\Source\\VoidwreckEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

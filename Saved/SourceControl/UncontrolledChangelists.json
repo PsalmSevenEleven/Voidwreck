@@ -1,0 +1,26 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/FirstPerson/Maps/FirstPersonMap_BuiltData.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Levels/TestWorld.umap",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Gamemodes/LobbyGameMode.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Player/PlayerBPs/BP_FirstPersonCharacter.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Player/Controllers/BPFirstPersonPlayerController.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/FirstPerson/Input/Actions/IA_Look.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Player/Input/MappingContexts/IMC_Computer.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Player/Input/MappingContexts/IMC_Lobby.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Player/Input/MappingContexts/IMC_Mission.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/FirstPerson/Input/IMC_Default.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/FirstPerson/Blueprints/BP_FirstPersonCharacter.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Player/Input/Actions/IA_Look.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Player/Input/Actions/IA_Move.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/FirstPerson/Input/Actions/IA_Move.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Player/BP_FirstPersonCharacter.uasset"
+			]
+		}
+	]
+}
