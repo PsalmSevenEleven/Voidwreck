@@ -135,10 +135,10 @@ void UVWPlayerAbilitySystemComponent::HandleQueuedAbilities()
 	//Activate everything in the list.
 	//Lyra's comments say that they are bundled together in this array to
 	//prevent hold and press events from activating abilities more times that intended
-	// for (const FGameplayAbilitySpecHandle& AbilitySpecHandle : AbilitiesToActivate)
-	// {
-	// 	TryActivateAbility(AbilitySpecHandle);
-	// }
+	for (const FGameplayAbilitySpecHandle& AbilitySpecHandle : AbilitiesToActivate)
+	{
+		TryActivateAbility(AbilitySpecHandle);
+	}
 
 	for (const int32& AbilityInput : AbilityInputsToActivate)
 	{
@@ -161,7 +161,7 @@ void UVWPlayerAbilitySystemComponent::HandleQueuedAbilities()
 				if (AbilitySpec->IsActive() && Ability)
 				{
 					//Release the ability
-					//AbilitySpecInputReleased(*AbilitySpec);
+					AbilitySpecInputReleased(*AbilitySpec);
 
 					ReleaseInputID(static_cast<int32>(Ability->AbilityInputID));
 				}

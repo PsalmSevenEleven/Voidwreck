@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeVWPlayerState() {}
 	VOIDWRECK_API UClass* Z_Construct_UClass_AVWPlayerState_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWAbilitySet_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWPlayerAttributeSet_NoRegister();
+	VOIDWRECK_API UClass* Z_Construct_UClass_UVWPlayerInterface_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AVWPlayerState::execServer_RequestAbilities)
 	{
@@ -205,6 +206,7 @@ void EmptyLinkFunctionForGeneratedCodeVWPlayerState() {}
 	};
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AVWPlayerState_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(AVWPlayerState, IAbilitySystemInterface), false },  // 3195502011
+			{ Z_Construct_UClass_UVWPlayerInterface_NoRegister, (int32)VTABLE_OFFSET(AVWPlayerState, IVWPlayerInterface), false },  // 1991718331
 		};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AVWPlayerState_Statics::InterfaceParams) < 64);
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AVWPlayerState_Statics::StaticCppClassTypeInfo = {
@@ -255,9 +257,9 @@ void EmptyLinkFunctionForGeneratedCodeVWPlayerState() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_VWPlayerState_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AVWPlayerState, AVWPlayerState::StaticClass, TEXT("AVWPlayerState"), &Z_Registration_Info_UClass_AVWPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AVWPlayerState), 129833737U) },
+		{ Z_Construct_UClass_AVWPlayerState, AVWPlayerState::StaticClass, TEXT("AVWPlayerState"), &Z_Registration_Info_UClass_AVWPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AVWPlayerState), 3172815980U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_VWPlayerState_h_2277946743(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_VWPlayerState_h_3135737565(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_VWPlayerState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_VWPlayerState_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -3,6 +3,9 @@
 
 #include "VWUserWidget.h"
 
+#include "AbilitySystemBlueprintLibrary.h"
+#include "GameFramework/PlayerState.h"
+
 void UVWUserWidget::BackOut()
 {
 	//If there isn't a parent widget we know that this is the top of the hierarchy,

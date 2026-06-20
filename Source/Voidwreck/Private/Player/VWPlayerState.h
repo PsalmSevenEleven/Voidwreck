@@ -7,14 +7,14 @@
 #include "AbilitySystemInterface.h"
 #include "AbilitySystem/VWAbilitySet.h"
 #include "GameFramework/PlayerState.h"
-//#include "Interfaces/VWPlayerInterface.h"
+#include "Interfaces/VWPlayerInterface.h"
 #include "VWPlayerState.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class AVWPlayerState : public APlayerState, public IAbilitySystemInterface//, public IVWPlayerInterface
+class AVWPlayerState : public APlayerState, public IAbilitySystemInterface, public IVWPlayerInterface
 {
 	GENERATED_BODY()
 

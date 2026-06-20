@@ -35,9 +35,9 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
-"C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Plugins\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealEditor\Development\AdvancedSessions\Module.AdvancedSessions.1.cpp.obj"
-"C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Plugins\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealEditor\Development\AdvancedSessions\Module.AdvancedSessions.2.cpp.obj"
-"C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Plugins\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealEditor\Development\AdvancedSessions\Module.AdvancedSessions.3.cpp.obj"
+"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Plugins\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealEditor\Development\AdvancedSessions\Module.AdvancedSessions.1.cpp.obj"
+"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Plugins\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealEditor\Development\AdvancedSessions\Module.AdvancedSessions.2.cpp.obj"
+"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Plugins\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealEditor\Development\AdvancedSessions\Module.AdvancedSessions.3.cpp.obj"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Core\UnrealEditor-Core.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\CoreUObject\UnrealEditor-CoreUObject.lib"
@@ -72,7 +72,7 @@
 "synchronization.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Plugins\AdvancedSessions\Binaries\Win64\UnrealEditor-AdvancedSessions-0002.dll"
-/IMPLIB:"C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Plugins\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealEditor\Development\AdvancedSessions\UnrealEditor-AdvancedSessions-0002.sup.lib"
-/PDB:"C:\Users\Caleb\Documents\Unreal Projects\HordeShooterRepo\HordeShooter\Plugins\AdvancedSessions\Binaries\Win64\UnrealEditor-AdvancedSessions-0002.pdb"
+/OUT:"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Plugins\AdvancedSessions\Binaries\Win64\UnrealEditor-AdvancedSessions-0002.dll"
+/IMPLIB:"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Plugins\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealEditor\Development\AdvancedSessions\UnrealEditor-AdvancedSessions-0002.sup.lib"
+/PDB:"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Plugins\AdvancedSessions\Binaries\Win64\UnrealEditor-AdvancedSessions-0002.pdb"
 /ignore:4078

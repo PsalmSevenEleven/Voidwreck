@@ -23,8 +23,6 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	FollowCamera->SetupAttachment(GetCapsuleComponent());
 	FollowCamera->bUsePawnControlRotation = true;
 
-	CharacterMovementComponentName = "CharMov";
-
 	// Configure camera
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = true;
@@ -122,7 +120,7 @@ void AFirstPersonCharacter::ActivateGASAbility(int32 Index, bool bOn)
 {
 	if(!IsValid(GetController()))
 	{
-		//GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Red, "No Controller!");
+		GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Red, "No Controller!");
 		return;
 	}
 	
@@ -143,6 +141,7 @@ void AFirstPersonCharacter::ActivateGASAbility(int32 Index, bool bOn)
 			ASC->QueueAbilityReleased(Index);
 		}
 	}
+	
 }
 
 // Called every frame
@@ -203,8 +202,6 @@ void AFirstPersonCharacter::Move(const FInputActionValue& Value)
 	if (Controller != nullptr)
 	{
 
-		
-		GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Orange, FString::SanitizeFloat(GetMovementComponent()->GetPendingInputVector().X) + ", " + FString::SanitizeFloat(GetMovementComponent()->GetPendingInputVector().Y));
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
@@ -250,7 +247,7 @@ void AFirstPersonCharacter::BindGASInputs(UInputComponent* PlayerInputComponent)
 		{
 			
 			//if the action isn't a GAS ability, we'll handle it in BindNativeInputs().
-			if (!Action.GetPlayerMappableKeySettings<UVWMappableKeySettings>() || !Action.GetPlayerMappableKeySettings<UVWMappableKeySettings>()->bIsGASAbility)
+			if (!Action.GetPlayerMappableKeySettings<UVWMappableKeySettings>()->bIsGASAbility)
 			{
 				continue;
 			}

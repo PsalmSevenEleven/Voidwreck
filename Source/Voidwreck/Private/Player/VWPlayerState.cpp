@@ -10,6 +10,8 @@
 AVWPlayerState::AVWPlayerState()
 {
 	AbilitySystemComponent = CreateDefaultSubobject<UVWPlayerAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
+
+	
 	AbilitySystemComponent->SetIsReplicated(true);
 
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
