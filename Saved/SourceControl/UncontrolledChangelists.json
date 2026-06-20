@@ -5,6 +5,10 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/Player/PlayerBPs/BP_FirstPersonCharacter.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/Player/Input/Actions/IA_Pause.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/Player/Input/MappingContexts/IMC_Lobby.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/Player/Controllers/BPFirstPersonPlayerController.uasset",
 				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/FirstPerson/Maps/FirstPersonMap_BuiltData.uasset",
 				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Levels/TestWorld.umap",
 				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Content/Gamemodes/LobbyGameMode.uasset",

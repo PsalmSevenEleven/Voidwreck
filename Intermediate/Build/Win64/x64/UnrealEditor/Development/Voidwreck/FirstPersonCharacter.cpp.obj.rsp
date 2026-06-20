@@ -1,11 +1,11 @@
-"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Source\Voidwreck\Private\FirstPersonCharacter.cpp"
+"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\Player\Character\FirstPersonCharacter.cpp"
 /FI"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\SharedPCH.Engine.Cpp20.h"
-/FI"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Intermediate\Build\Win64\x64\UnrealEditor\Development\Voidwreck\Definitions.Voidwreck.h"
+/FI"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Intermediate\Build\Win64\x64\UnrealEditor\Development\Voidwreck\Definitions.Voidwreck.h"
 /Yu"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\SharedPCH.Engine.Cpp20.h"
 /Fp"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.pch"
-/Fo"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Intermediate\Build\Win64\x64\UnrealEditor\Development\Voidwreck\FirstPersonCharacter.cpp.obj"
-/sourceDependencies "C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Intermediate\Build\Win64\x64\UnrealEditor\Development\Voidwreck\FirstPersonCharacter.cpp.dep.json"
-@"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Intermediate\Build\Win64\x64\UnrealEditor\Development\Voidwreck\Voidwreck.Shared.rsp"
+/Fo"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Intermediate\Build\Win64\x64\UnrealEditor\Development\Voidwreck\FirstPersonCharacter.cpp.obj"
+/sourceDependencies "C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Intermediate\Build\Win64\x64\UnrealEditor\Development\Voidwreck\FirstPersonCharacter.cpp.dep.json"
+@"C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Intermediate\Build\Win64\x64\UnrealEditor\Development\Voidwreck\Voidwreck.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

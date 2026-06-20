@@ -17,6 +17,17 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Plugins/Online/OnlineSubsystemNull/Source/Private/OnlineSubsystemNull.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/CoreUObject/Public/UObject/ObjectPtr.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../UnrealEngineSource/Engine/Source/Runtime/Engine/Classes/GameFramework/CharacterMovementComponent.h" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -516,6 +527,10 @@
       <updated>1781029100412</updated>
       <workItem from="1781029101973" duration="3199000" />
       <workItem from="1781032654227" duration="4279000" />
+      <workItem from="1781973654099" duration="106000" />
+      <workItem from="1781973856894" duration="91000" />
+      <workItem from="1781973969737" duration="1581000" />
+      <workItem from="1781975632177" duration="866000" />
     </task>
     <servers />
   </component>

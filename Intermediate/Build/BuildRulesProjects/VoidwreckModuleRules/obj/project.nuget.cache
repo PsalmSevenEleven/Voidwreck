@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TJke42H0rszaTf+si1sMTovhgnoQOhL4gdsp2G7r+oqeBfkacE3fkCLdMFnb5Oj6bCPuoMxNIRui7WRQeLdTGA==",
+  "dgSpecHash": "pOixfwk8mUpRJG6rpCxc5LIjJyeozGFCV0kn/tw4h3MwZ8qlmD29eIAJP3956QNuWv3F5roa5imBudR3NrBq0A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\VoidwreckModuleRules.csproj",
+  "projectFilePath": "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\VoidwreckModuleRules.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Caleb\\.nuget\\packages\\blake3\\0.5.1\\blake3.0.5.1.nupkg.sha512",
     "C:\\Users\\Caleb\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",

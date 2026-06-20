@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\VoidwreckModuleRules.csproj": {}
+    "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\VoidwreckModuleRules.csproj": {}
   },
   "projects": {
     "C:\\UnrealEngineSource\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj": {
@@ -1008,14 +1008,14 @@
         }
       }
     },
-    "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\VoidwreckModuleRules.csproj": {
+    "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\VoidwreckModuleRules.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\VoidwreckModuleRules.csproj",
+        "projectUniqueName": "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\VoidwreckModuleRules.csproj",
         "projectName": "VoidwreckModuleRules",
-        "projectPath": "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\VoidwreckModuleRules.csproj",
+        "projectPath": "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\VoidwreckModuleRules.csproj",
         "packagesPath": "C:\\Users\\Caleb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\obj\\",
+        "outputPath": "C:\\Users\\Caleb\\Documents\\Unreal Projects\\Voidwreck\\Voidwreck\\Intermediate\\Build\\BuildRulesProjects\\VoidwreckModuleRules\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Caleb\\AppData\\Roaming\\NuGet\\NuGet.Config",
