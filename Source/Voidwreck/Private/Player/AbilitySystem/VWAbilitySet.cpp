@@ -1,8 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Player/AbilitySystem/VWAbilitySet.h"
-
+#include "Player/AbilitySystem/VWGameplayAbility.h"
 #include "AbilitySystemComponent.h"
 
 void UVWAbilitySet::AddAbilitiesToASC(UAbilitySystemComponent* ASC) const

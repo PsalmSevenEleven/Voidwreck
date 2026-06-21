@@ -271,6 +271,39 @@
     <Filter Include="Source\Voidwreck\Private">
       <UniqueIdentifier>{E6E59EB4-7713-345D-B8F0-6D94B72FC6A6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Voidwreck\Private\Background_Infrastructure">
+      <UniqueIdentifier>{6F0590BD-8640-3B77-B7FD-876CF061664E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWGameplayTags.cpp">
+      <Filter>Source\Voidwreck\Private\Background_Infrastructure</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWGameplayTags.h">
+      <Filter>Source\Voidwreck\Private\Background_Infrastructure</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWSaveGame.cpp">
+      <Filter>Source\Voidwreck\Private\Background_Infrastructure</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWSaveGame.h">
+      <Filter>Source\Voidwreck\Private\Background_Infrastructure</Filter>
+    </ClInclude>
+    <Filter Include="Source\Voidwreck\Private\GameModes">
+      <UniqueIdentifier>{D97BC9EF-CAD8-3722-939D-2694E6C98150}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\GameModes\VWGamemodeBase.cpp">
+      <Filter>Source\Voidwreck\Private\GameModes</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\GameModes\VWGamemodeBase.h">
+      <Filter>Source\Voidwreck\Private\GameModes</Filter>
+    </ClInclude>
+    <Filter Include="Source\Voidwreck\Private\Interfaces">
+      <UniqueIdentifier>{C0FF48B0-2200-31A3-9C43-920B4DCF1208}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Interfaces\VWPlayerInterface.cpp">
+      <Filter>Source\Voidwreck\Private\Interfaces</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Interfaces\VWPlayerInterface.h">
+      <Filter>Source\Voidwreck\Private\Interfaces</Filter>
+    </ClInclude>
     <Filter Include="Source\Voidwreck\Private\Player">
       <UniqueIdentifier>{FB859D95-50C9-38F9-8EC5-ADB73647A304}</UniqueIdentifier>
     </Filter>
@@ -324,6 +357,21 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\Voidwreck\Private\Player\Input\FirstPersonPlayerController.h">
       <Filter>Source\Voidwreck\Private\Player\Input</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Player\Input\VWMappableKeySettings.cpp">
+      <Filter>Source\Voidwreck\Private\Player\Input</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Player\Input\VWMappableKeySettings.h">
+      <Filter>Source\Voidwreck\Private\Player\Input</Filter>
+    </ClInclude>
+    <Filter Include="Source\Voidwreck\Private\UI">
+      <UniqueIdentifier>{EC9DC574-3CC6-3645-96EB-E918F93637F8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\VWUserWidget.cpp">
+      <Filter>Source\Voidwreck\Private\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\VWUserWidget.h">
+      <Filter>Source\Voidwreck\Private\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

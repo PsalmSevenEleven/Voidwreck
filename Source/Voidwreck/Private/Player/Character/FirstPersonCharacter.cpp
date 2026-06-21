@@ -53,7 +53,11 @@ void AFirstPersonCharacter::PossessedBy(AController* NewController)
 		AttributeSet = AbilitySystemComponent->GetSet<UVWPlayerAttributeSet>();
 		
 		ensure(DefaultAbilities);
-		DefaultAbilities->AddAbilitiesToASC(AbilitySystemComponent);
+		if(!bDefaultAbilitiesAdded)
+		{
+			DefaultAbilities->AddAbilitiesToASC(AbilitySystemComponent);
+		}
+		
 	}
 
 	FirstPersonPlayerController = GetController<AFirstPersonPlayerController>();
@@ -93,9 +97,10 @@ void AFirstPersonCharacter::OnRep_PlayerState()
 		BindNativeInputs(Controller->InputComponent);
 	}
 	
-	if(DefaultAbilities)
+	if(DefaultAbilities && !bDefaultAbilitiesAdded)
 	{
 		DefaultAbilities->AddAbilitiesToASC(AbilitySystemComponent);
+		bDefaultAbilitiesAdded = true;
 	}
 		
 	if(AbilitySystemComponent)

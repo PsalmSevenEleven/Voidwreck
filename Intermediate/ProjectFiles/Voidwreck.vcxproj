@@ -39,7 +39,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{130F03B7-3593-3B6C-9349-021A225C6756}</ProjectGuid>
+    <ProjectGuid>{03647772-FC5B-312E-A7A9-2820A94C5F01}</ProjectGuid>
     <RootNamespace>Voidwreck</RootNamespace>
   </PropertyGroup>
   <Import Project="UECommon.props" />
@@ -538,24 +538,36 @@
     <ClInclude Include="..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Public\MultiplayerSessions.h"/>
     <ClInclude Include="..\..\Plugins\MultiplayerSessions\Source\MultiplayerSessions\Public\MultiplayerSessionsGISubsystem.h"/>
     <None Include="..\..\Source\Voidwreck\Voidwreck.Build.cs"/>
-    <ClCompile Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWGameplayTags.cpp" />
-    <ClCompile Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWSaveGame.cpp" />
-    <ClCompile Include="..\..\Source\Voidwreck\Private\GameModes\VWGamemodeBase.cpp" />
-    <ClCompile Include="..\..\Source\Voidwreck\Private\Interfaces\VWPlayerInterface.cpp" />
-    <ClCompile Include="..\..\Source\Voidwreck\Private\Player\Input\VWMappableKeySettings.cpp" />
-    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\VWUserWidget.cpp" />
     <ClCompile Include="..\..\Source\Voidwreck\Voidwreck.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWGameplayTags.h" />
-    <ClInclude Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWSaveGame.h" />
-    <ClInclude Include="..\..\Source\Voidwreck\Private\GameModes\VWGamemodeBase.h" />
-    <ClInclude Include="..\..\Source\Voidwreck\Private\Interfaces\VWPlayerInterface.h" />
-    <ClInclude Include="..\..\Source\Voidwreck\Private\Player\Input\VWMappableKeySettings.h" />
-    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\VWUserWidget.h" />
     <ClInclude Include="..\..\Source\Voidwreck\Voidwreck.h"/>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWGameplayTags.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWGameplayTags.h"/>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWSaveGame.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWSaveGame.h"/>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\GameModes\VWGamemodeBase.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\GameModes\VWGamemodeBase.h"/>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Interfaces\VWPlayerInterface.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Interfaces\VWPlayerInterface.h"/>
     <ClCompile Include="..\..\Source\Voidwreck\Private\Player\VWPlayerState.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
@@ -598,6 +610,18 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\Voidwreck\Private\Player\Input\FirstPersonPlayerController.h"/>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Player\Input\VWMappableKeySettings.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Player\Input\VWMappableKeySettings.h"/>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\VWUserWidget.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\VWUserWidget.h"/>
   </ItemGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>

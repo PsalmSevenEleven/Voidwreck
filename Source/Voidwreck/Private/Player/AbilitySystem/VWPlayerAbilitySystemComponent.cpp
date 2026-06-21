@@ -27,10 +27,15 @@ void UVWPlayerAbilitySystemComponent::QueueAbilityPressed(int32 Index)
 		//add it to the list of pressed and held abilities and let HandleQueuedAbilities() take care of it
 		if (static_cast<int32>(Ability->AbilityInputID) == Index)
 		{
-			//We use AddUnique here because it is theoretically possible to have the same ability
-			//activate multiple times on the frame, however unlikely that may be
-			PressedAbilityHandles.AddUnique(AbilitySpec.Handle);
-			HeldAbilityHandles.AddUnique(AbilitySpec.Handle);
+			if(Ability->GetActivationType() == EAbilityActivationType::ActivateOnPressed)
+			{
+				PressedAbilityHandles.AddUnique(AbilitySpec.Handle);
+			}
+			if(Ability->GetActivationType() == EAbilityActivationType::ActivateWhileHeld)
+			{
+				HeldAbilityHandles.AddUnique(AbilitySpec.Handle);
+			}
+			
 		}
 	}
 	
@@ -114,6 +119,7 @@ void UVWPlayerAbilitySystemComponent::HandleQueuedAbilities()
 
 				if (AbilitySpec->IsActive())
 				{
+					//GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Orange, "Activating Ability");
 					//Activate the ability
 					AbilitySpecInputPressed(*AbilitySpec);
 				}
@@ -135,10 +141,10 @@ void UVWPlayerAbilitySystemComponent::HandleQueuedAbilities()
 	//Activate everything in the list.
 	//Lyra's comments say that they are bundled together in this array to
 	//prevent hold and press events from activating abilities more times that intended
-	for (const FGameplayAbilitySpecHandle& AbilitySpecHandle : AbilitiesToActivate)
-	{
-		TryActivateAbility(AbilitySpecHandle);
-	}
+	// for (const FGameplayAbilitySpecHandle& AbilitySpecHandle : AbilitiesToActivate)
+	// {
+	// 	TryActivateAbility(AbilitySpecHandle);
+	// }
 
 	for (const int32& AbilityInput : AbilityInputsToActivate)
 	{

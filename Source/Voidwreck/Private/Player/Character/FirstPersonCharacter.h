@@ -60,6 +60,8 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	TObjectPtr<const UVWAbilitySet> DefaultAbilities;
 
+	bool bDefaultAbilitiesAdded = false;
+
 	UFUNCTION()
 	void ActivateGASAbility(int32 Index, bool bOn);
 	
