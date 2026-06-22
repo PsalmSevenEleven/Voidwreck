@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UObject;
 struct FBPUniqueNetId;
 #ifdef ADVANCEDSESSIONS_AdvancedVoiceLibrary_generated_h
 #error "AdvancedVoiceLibrary.generated.h already included, missing '#pragma once' in AdvancedVoiceLibrary.h"

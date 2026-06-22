@@ -20,6 +20,7 @@ struct FBlueprintSessionResult;
 struct FBPUniqueNetId;
 struct FSessionPropertyKeyPair;
 struct FSessionsSearchSetting;
+struct FUniqueNetIdRepl;
 #ifdef ADVANCEDSESSIONS_AdvancedSessionsLibrary_generated_h
 #error "AdvancedSessionsLibrary.generated.h already included, missing '#pragma once' in AdvancedSessionsLibrary.h"
 #endif
@@ -37,6 +38,7 @@ struct FSessionsSearchSetting;
 	DECLARE_FUNCTION(execSetPlayerName); \
 	DECLARE_FUNCTION(execGetPlayerName); \
 	DECLARE_FUNCTION(execUniqueNetIdToString); \
+	DECLARE_FUNCTION(execConv_BPUniqueIDToUniqueNetIDRepl); \
 	DECLARE_FUNCTION(execEqualEqual_UNetIDUnetID); \
 	DECLARE_FUNCTION(execIsValidUniqueNetID); \
 	DECLARE_FUNCTION(execGetUniqueNetIDFromPlayerState); \

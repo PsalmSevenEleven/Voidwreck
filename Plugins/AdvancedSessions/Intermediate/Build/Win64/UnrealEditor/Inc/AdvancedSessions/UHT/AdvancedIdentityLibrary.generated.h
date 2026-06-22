@@ -10,6 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class APlayerController;
+class UObject;
 enum class EBlueprintResultSwitch : uint8;
 enum class EBPLoginStatus : uint8;
 struct FBPUniqueNetId;

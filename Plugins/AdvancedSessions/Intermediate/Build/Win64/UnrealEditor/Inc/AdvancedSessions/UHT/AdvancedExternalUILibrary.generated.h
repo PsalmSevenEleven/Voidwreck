@@ -10,6 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class APlayerController;
+class UObject;
 enum class EBlueprintResultSwitch : uint8;
 struct FBPUniqueNetId;
 #ifdef ADVANCEDSESSIONS_AdvancedExternalUILibrary_generated_h

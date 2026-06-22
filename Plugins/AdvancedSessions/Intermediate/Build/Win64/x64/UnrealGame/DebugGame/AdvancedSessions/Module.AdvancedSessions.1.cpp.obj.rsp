@@ -1,11 +1,11 @@
-"D:\Documents\Unreal Projects\VRExpPluginExp\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealGame\DebugGame\AdvancedSessions\Module.AdvancedSessions.1.cpp"
-/FI"D:\Documents\Unreal Projects\VRExpPluginExp\Intermediate\Build\Win64\x64\VRExpPluginExample\DebugGame\Engine\SharedPCH.Engine.NonOptimized.Cpp17.h"
-/FI"D:\Documents\Unreal Projects\VRExpPluginExp\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealGame\DebugGame\AdvancedSessions\Definitions.AdvancedSessions.h"
-/Yu"D:\Documents\Unreal Projects\VRExpPluginExp\Intermediate\Build\Win64\x64\VRExpPluginExample\DebugGame\Engine\SharedPCH.Engine.NonOptimized.Cpp17.h"
-/Fp"D:\Documents\Unreal Projects\VRExpPluginExp\Intermediate\Build\Win64\x64\VRExpPluginExample\DebugGame\Engine\SharedPCH.Engine.NonOptimized.Cpp17.h.pch"
-/Fo"D:\Documents\Unreal Projects\VRExpPluginExp\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealGame\DebugGame\AdvancedSessions\Module.AdvancedSessions.1.cpp.obj"
-/sourceDependencies "D:\Documents\Unreal Projects\VRExpPluginExp\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealGame\DebugGame\AdvancedSessions\Module.AdvancedSessions.1.cpp.dep.json"
-@"D:\Documents\Unreal Projects\VRExpPluginExp\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealGame\DebugGame\AdvancedSessions\AdvancedSessions.Shared.rsp"
+"C:\Users\morde\Documents\Unreal Projects\PluginExpProject\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealGame\DebugGame\AdvancedSessions\Module.AdvancedSessions.1.cpp"
+/FI"C:\Users\morde\Documents\Unreal Projects\PluginExpProject\Intermediate\Build\Win64\x64\VRExpPluginExample\DebugGame\Engine\SharedPCH.Engine.NonOptimized.Cpp17.h"
+/FI"C:\Users\morde\Documents\Unreal Projects\PluginExpProject\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealGame\DebugGame\AdvancedSessions\Definitions.AdvancedSessions.h"
+/Yu"C:\Users\morde\Documents\Unreal Projects\PluginExpProject\Intermediate\Build\Win64\x64\VRExpPluginExample\DebugGame\Engine\SharedPCH.Engine.NonOptimized.Cpp17.h"
+/Fp"C:\Users\morde\Documents\Unreal Projects\PluginExpProject\Intermediate\Build\Win64\x64\VRExpPluginExample\DebugGame\Engine\SharedPCH.Engine.NonOptimized.Cpp17.h.pch"
+/Fo"C:\Users\morde\Documents\Unreal Projects\PluginExpProject\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealGame\DebugGame\AdvancedSessions\Module.AdvancedSessions.1.cpp.obj"
+/sourceDependencies "C:\Users\morde\Documents\Unreal Projects\PluginExpProject\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealGame\DebugGame\AdvancedSessions\Module.AdvancedSessions.1.cpp.dep.json"
+@"C:\Users\morde\Documents\Unreal Projects\PluginExpProject\Plugins\AdvancedSessions\AdvancedSessions\Intermediate\Build\Win64\x64\UnrealGame\DebugGame\AdvancedSessions\AdvancedSessions.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

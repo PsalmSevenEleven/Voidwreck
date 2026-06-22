@@ -5,7 +5,18 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/Player/GAS/GA_Pause.uasset"
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/Player/GAS/GA_Pause.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/Levels/MainMenuLevel.umap",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/Infrastructure/Gamemodes/BP_LobbyGamemode.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/Levels/TestWorld.umap",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/FPWeapon/Mesh/SK_FPGun_PhysicsAsset.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/FPWeapon/Mesh/SK_FPGun_Skeleton.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/FPWeapon/Mesh/SK_FPGun_Physics.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/FirstPerson/Blueprints/BP_PickUp_Rifle.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/UI/BP_SteamFriendsList.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/UI/BP_SteamFriend.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/Infrastructure/Gamemodes/LobbyGameMode.uasset",
+				"C:/Users/Caleb/Documents/Unreal Projects/Voidwreck/Voidwreck/Content/Gamemodes/LobbyGameMode.uasset"
 			]
 		}
 	]

@@ -275,9 +275,6 @@
 /I "..\Plugins\Runtime\DataRegistry\Source\DataRegistry\Public"
 /I "C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Intermediate\Build\Win64\UnrealEditor\Inc\Voidwreck\UHT"
 /I "C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source"
-/I "..\Plugins\Online\OnlineSubsystemSteam\Intermediate\Build\Win64\UnrealEditor\Inc\OnlineSubsystemSteam\UHT"
-/I "..\Plugins\Online\OnlineSubsystemSteam\Source\Classes"
-/I "..\Plugins\Online\OnlineSubsystemSteam\Source\Public"
 /external:W0
 /external:I "ThirdParty\mimalloc\include"
 /external:I "ThirdParty\LibTiff\Source\Win64"

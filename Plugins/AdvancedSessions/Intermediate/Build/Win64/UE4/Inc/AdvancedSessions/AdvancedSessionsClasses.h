@@ -28,5 +28,6 @@
 #include "AdvancedSessions/Classes/LoginUserCallbackProxy.h"
 #include "AdvancedSessions/Classes/LogoutUserCallbackProxy.h"
 #include "AdvancedSessions/Classes/SendFriendInviteCallbackProxy.h"
+#include "AdvancedSessions/Classes/StartSessionCallbackProxyAdvanced.h"
 #include "AdvancedSessions/Classes/UpdateSessionCallbackProxyAdvanced.h"
 
