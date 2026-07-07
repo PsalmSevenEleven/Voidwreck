@@ -7,6 +7,12 @@
 #include "AttributeSet.h"
 #include "VWPlayerAttributeSet.generated.h"
 
+#define ATTRIBUTE_ACCESSORS(ClassName, PropertyName) \
+	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(ClassName, PropertyName) \
+	GAMEPLAYATTRIBUTE_VALUE_GETTER(PropertyName) \
+	GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \
+	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
+
 /**
  * 
  */
@@ -21,44 +27,34 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
 	FGameplayAttributeData CurrentHealth;
-	GAMEPLAYATTRIBUTE_VALUE_GETTER(CurrentHealth);
-	GAMEPLAYATTRIBUTE_VALUE_SETTER(CurrentHealth);
-	GAMEPLAYATTRIBUTE_VALUE_INITTER(CurrentHealth);
-	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UVWPlayerAttributeSet, CurrentHealth);
+	ATTRIBUTE_ACCESSORS(UVWPlayerAttributeSet, CurrentHealth);
 
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
 	FGameplayAttributeData MaxHealth;
-	GAMEPLAYATTRIBUTE_VALUE_GETTER(MaxHealth);
-	GAMEPLAYATTRIBUTE_VALUE_SETTER(MaxHealth);
-	GAMEPLAYATTRIBUTE_VALUE_INITTER(MaxHealth);
-	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UVWPlayerAttributeSet, MaxHealth);
+	ATTRIBUTE_ACCESSORS(UVWPlayerAttributeSet, MaxHealth);
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
 	FGameplayAttributeData RemainingRounds;
-	GAMEPLAYATTRIBUTE_VALUE_GETTER(RemainingRounds);
-	GAMEPLAYATTRIBUTE_VALUE_SETTER(RemainingRounds);
-	GAMEPLAYATTRIBUTE_VALUE_INITTER(RemainingRounds);
-	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UVWPlayerAttributeSet, RemainingRounds);
+	ATTRIBUTE_ACCESSORS(UVWPlayerAttributeSet, RemainingRounds);
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
 	FGameplayAttributeData MaxRounds;
-	GAMEPLAYATTRIBUTE_VALUE_GETTER(MaxRounds);
-	GAMEPLAYATTRIBUTE_VALUE_SETTER(MaxRounds);
-	GAMEPLAYATTRIBUTE_VALUE_INITTER(MaxRounds);
-	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UVWPlayerAttributeSet, MaxRounds);
+	ATTRIBUTE_ACCESSORS(UVWPlayerAttributeSet, MaxRounds);
 
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
 	FGameplayAttributeData WalkSpeed;
-	GAMEPLAYATTRIBUTE_VALUE_GETTER(WalkSpeed);
-	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UVWPlayerAttributeSet, WalkSpeed);
+	ATTRIBUTE_ACCESSORS(UVWPlayerAttributeSet, WalkSpeed);
 
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
 	FGameplayAttributeData SprintSpeed;
-	GAMEPLAYATTRIBUTE_VALUE_GETTER(SprintSpeed);
-	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UVWPlayerAttributeSet, SprintSpeed);
+	ATTRIBUTE_ACCESSORS(UVWPlayerAttributeSet, SprintSpeed);
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
+	FGameplayAttributeData InteractionDistance;
+	ATTRIBUTE_ACCESSORS(UVWPlayerAttributeSet, InteractionDistance);
 	
 };
 

@@ -10,7 +10,6 @@
 AVWPlayerState::AVWPlayerState()
 {
 	AbilitySystemComponent = CreateDefaultSubobject<UVWPlayerAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
-
 	
 	AbilitySystemComponent->SetIsReplicated(true);
 
@@ -19,8 +18,6 @@ AVWPlayerState::AVWPlayerState()
 	//From what I know, this will automatically register itself with the AbilitySystemComponent
 	//because this playerstate is the ASC's owner
 	AttributeSet = CreateDefaultSubobject<UVWPlayerAttributeSet>(TEXT("AttributeSet"));
-	
-	//OnCharacterClassChanged = FOnCharacterClassChangedDelegate();
 	
 	NetUpdateFrequency = 50.0f;
 }

@@ -5,12 +5,18 @@
 
 #include "EnhancedInputComponent.h"
 #include "InputActionValue.h"
+#include "Background_Infrastructure/VWGameplayTags.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/ProgressBar.h"
+#include "Components/TextBlock.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Interfaces/InteractableInterface.h"
 #include "Player/VWPlayerState.h"
 #include "Player/AbilitySystem/VWPlayerAbilitySystemComponent.h"
 #include "Player/Input/FirstPersonPlayerController.h"
 #include "Player/Input/VWMappableKeySettings.h"
+#include "UI/InteractPrompt.h"
+#include "UI/VWHud.h"
 
 
 // Sets default values
@@ -37,6 +43,40 @@ void AFirstPersonCharacter::BeginPlay()
 	
 }
 
+void AFirstPersonCharacter::InitAttributes()
+{
+	if(!AttributesEffect.Get() )
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No attributes effect!"));
+		return;
+	}
+	if(!AbilitySystemComponent)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No ASC !"));
+		return;
+	}
+	if(bAttributesInitted)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Already Initted!"));
+		return;
+	}
+	if(!AbilitySystemComponent->MakeEffectContext().Get())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No effect context!"));
+	}
+	
+	FGameplayEffectContextHandle EffectContext = AbilitySystemComponent->MakeEffectContext();
+	EffectContext.AddSourceObject(this);
+	
+	FGameplayEffectSpecHandle AttributesEffectHandle = AbilitySystemComponent->MakeOutgoingSpec(AttributesEffect.Get(), 1, EffectContext);
+	if (AttributesEffectHandle.IsValid())
+	{
+		AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*AttributesEffectHandle.Data.Get(), AbilitySystemComponent);
+		UE_LOG(LogTemp, Log, TEXT("Default attributes applied"));
+		bAttributesInitted = true;
+	}
+}
+
 //This is triggered when the character is possessed by a controller, and is where any server side setup should be done. The client will be handled in OnRep_PlayerState().
 void AFirstPersonCharacter::PossessedBy(AController* NewController)
 {
@@ -60,6 +100,8 @@ void AFirstPersonCharacter::PossessedBy(AController* NewController)
 		
 	}
 
+	InitAttributes();
+
 	FirstPersonPlayerController = GetController<AFirstPersonPlayerController>();
 	if(FirstPersonPlayerController && GetNetMode() < NM_Client && bCanSetViewTarget && IsLocallyControlled())
 	{
@@ -67,12 +109,15 @@ void AFirstPersonCharacter::PossessedBy(AController* NewController)
 		FirstPersonPlayerController->SetViewTarget(FirstPersonPlayerController->GetPawn());
 	}
 
-	//TODO - Init any hud
+	CreateHud();
+	SetInteractTimer();
+	
 }
 
 void AFirstPersonCharacter::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
+
 
 	VWPlayerState = GetPlayerState<AVWPlayerState>();
 	if(!VWPlayerState)
@@ -107,10 +152,113 @@ void AFirstPersonCharacter::OnRep_PlayerState()
 	{
 		AttributeSet = AbilitySystemComponent->GetSet<UVWPlayerAttributeSet>();
 	}
+
+	InitAttributes();
+	
+	CreateHud();
+	SetInteractTimer();
+}
+
+void AFirstPersonCharacter::SetInteractTimer()
+{
+	//Tick is an abomination given to designers by God to punish programmers for their hubris
+	//Therefore, looping timer
+	FTimerHandle InteractTimerHandle;
+
+	//SetInteractTimer() is called in both OnRep_PlayerState() and PossessedBy(),
+	//but SetTimer() will internally clear the existing timer if the handle already has one associated with it,
+	//so we don't need to worry about multiple timers being set.
+	GetWorld()->GetTimerManager().SetTimer(InteractTimerHandle, this, &AFirstPersonCharacter::InteractCheck, 0.03f, true);
 	
 }
 
- void AFirstPersonCharacter::Server_RequestAbilities_Implementation(const TSoftObjectPtr<UVWAbilitySet>& AbilitySet)
+void AFirstPersonCharacter::CreateHud()
+{
+	if(!bHudCreated)
+	{
+		AFirstPersonPlayerController* PC = GetController<AFirstPersonPlayerController>();
+		if(PC)
+		{
+			PC->SetupHud();
+			bHudCreated = true;
+		}
+	}
+}
+
+void AFirstPersonCharacter::InteractCheck()
+{
+	if(!VWPlayerState || VWPlayerState->GetAbilitySystemComponent()->HasMatchingGameplayTag(TAG_Player_Status_Menu))
+	{
+		return;
+	}
+	
+	FHitResult HitResult;
+	// const FName TraceTag("InteractTraceTag");
+	// GetWorld()->DebugDrawTraceTag = TraceTag;
+	
+	FCollisionQueryParams CollisionParams;
+	//CollisionParams.TraceTag = TraceTag;
+	
+	if(!GetWorld()
+		|| !FollowCamera
+		|| !FirstPersonPlayerController
+		|| !FirstPersonPlayerController->HUD
+		|| !FirstPersonPlayerController->HUD->InteractPrompt)
+	{
+		// FString Log = GetWorld() ? "world"
+		// 		: FollowCamera ? "camera"
+		// 		: FirstPersonPlayerController ? "player controller"
+		// 		: FirstPersonPlayerController->HUD ? "HUD"
+		// 		: "Interact Prompt";
+		// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("InteractCheck failed: No" + Log));
+		return;
+	}
+	
+	int32 InteractionDistance = AttributeSet->GetInteractionDistance();
+	GEngine->AddOnScreenDebugMessage(-1, 0.033f, FColor::Green, FString::FromInt(InteractionDistance));
+	
+	GetWorld()->LineTraceSingleByChannel(HitResult, FollowCamera->GetComponentLocation(), FollowCamera->GetComponentLocation() + FollowCamera->GetForwardVector() * InteractionDistance, ECollisionChannel::ECC_GameTraceChannel1, CollisionParams);
+	
+	if(!HitResult.GetActor() || !HitResult.GetActor()->Implements<UInteractableInterface>())
+	{
+		CurrentInteractable = nullptr;
+		
+		if(FirstPersonPlayerController->HUD->InteractPrompt->GetVisibility() == ESlateVisibility::Visible)
+		{
+			FirstPersonPlayerController->HUD->InteractPrompt->SetVisibility(ESlateVisibility::Collapsed);
+		}
+		
+		return;
+	}
+	
+	CurrentInteractable = HitResult.GetActor();
+	
+	UInteractPrompt* InteractPrompt = FirstPersonPlayerController->HUD->InteractPrompt;
+	
+	if(InteractPrompt->GetVisibility() == ESlateVisibility::Collapsed)
+	{
+		InteractPrompt->SetVisibility(ESlateVisibility::Visible);
+			
+		FString InteractText;
+		EInteractionType InteractionType;
+		IInteractableInterface::Execute_RetrieveInteractInfo(CurrentInteractable, InteractText, InteractionType);
+	
+		InteractPrompt->PromptText->SetText(FText::FromString(InteractText));
+	
+		if(InteractionType == EInteractionType::InteractionType_Hold)
+		{
+			InteractPrompt->ProgressBar->SetVisibility(ESlateVisibility::Visible);
+			InteractPrompt->ProgressBar->PercentDelegate.BindUFunction(CurrentInteractable, "GetPercentComplete");
+			InteractPrompt->ProgressBar->SynchronizeProperties();
+		}
+		else
+		{
+			InteractPrompt->ProgressBar->SetVisibility(ESlateVisibility::Collapsed);
+		}
+	}
+}
+
+void AFirstPersonCharacter::Server_RequestAbilities_Implementation(const TSoftObjectPtr<UVWAbilitySet>& AbilitySet)
  {
  	AbilitySet->AddAbilitiesToASC(VWPlayerState->GetAbilitySystemComponent());
  }
@@ -149,12 +297,7 @@ void AFirstPersonCharacter::ActivateGASAbility(int32 Index, bool bOn)
 	
 }
 
-// Called every frame
-void AFirstPersonCharacter::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
 
-}
 
 // Called to bind functionality to input
 void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -235,6 +378,8 @@ void AFirstPersonCharacter::Look(const FInputActionValue& Value)
 		AddControllerPitchInput(Value.Get<FVector2D>().Y);
 	}
 }
+
+
 
 //Automatically binds all GAS abilities to their inputs,
 //saving the trouble of creating a variable for every input action and creating a function to call each possible GAS ability.

@@ -54,6 +54,10 @@ void EmptyLinkFunctionForGeneratedCodeVWPlayerAttributeSet() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SprintSpeed_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_SprintSpeed;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InteractionDistance_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_InteractionDistance;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -114,6 +118,13 @@ void EmptyLinkFunctionForGeneratedCodeVWPlayerAttributeSet() {}
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_SprintSpeed = { "SprintSpeed", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWPlayerAttributeSet, SprintSpeed), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_SprintSpeed_MetaData), Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_SprintSpeed_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_InteractionDistance_MetaData[] = {
+		{ "Category", "Attributes" },
+		{ "ModuleRelativePath", "Private/Player/AbilitySystem/VWPlayerAttributeSet.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_InteractionDistance = { "InteractionDistance", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWPlayerAttributeSet, InteractionDistance), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_InteractionDistance_MetaData), Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_InteractionDistance_MetaData) }; // 2151517668
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UVWPlayerAttributeSet_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_CurrentHealth,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_MaxHealth,
@@ -121,6 +132,7 @@ void EmptyLinkFunctionForGeneratedCodeVWPlayerAttributeSet() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_MaxRounds,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_WalkSpeed,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_SprintSpeed,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWPlayerAttributeSet_Statics::NewProp_InteractionDistance,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UVWPlayerAttributeSet_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UVWPlayerAttributeSet>::IsAbstract,
@@ -161,9 +173,9 @@ void EmptyLinkFunctionForGeneratedCodeVWPlayerAttributeSet() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_AbilitySystem_VWPlayerAttributeSet_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UVWPlayerAttributeSet, UVWPlayerAttributeSet::StaticClass, TEXT("UVWPlayerAttributeSet"), &Z_Registration_Info_UClass_UVWPlayerAttributeSet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWPlayerAttributeSet), 2991508860U) },
+		{ Z_Construct_UClass_UVWPlayerAttributeSet, UVWPlayerAttributeSet::StaticClass, TEXT("UVWPlayerAttributeSet"), &Z_Registration_Info_UClass_UVWPlayerAttributeSet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWPlayerAttributeSet), 3669799219U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_AbilitySystem_VWPlayerAttributeSet_h_83177356(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_AbilitySystem_VWPlayerAttributeSet_h_3871459470(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_AbilitySystem_VWPlayerAttributeSet_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_AbilitySystem_VWPlayerAttributeSet_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

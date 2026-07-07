@@ -6,6 +6,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "Player/VWPlayerState.h"
 #include "Player/AbilitySystem/VWPlayerAbilitySystemComponent.h"
+#include "UI/VWHud.h"
 
 void AFirstPersonPlayerController::SetupEnhancedInputContext()
 {
@@ -31,6 +32,15 @@ void AFirstPersonPlayerController::PostProcessInput(const float DeltaTime, const
 	if(UVWPlayerAbilitySystemComponent* AbilitySystemComponent = Cast<UVWPlayerAbilitySystemComponent>(GetAbilitySystemComponent()))
 	{
 		AbilitySystemComponent->HandleQueuedAbilities();
+	}
+}
+
+void AFirstPersonPlayerController::SetupHud()
+{
+	HUD = CreateWidget<UVWHud>(this, HUDClass);
+	if(HUD)
+	{
+		HUD->AddToViewport();
 	}
 }
 

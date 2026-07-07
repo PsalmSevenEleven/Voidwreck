@@ -13,6 +13,7 @@
     </None>
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\steam_appid.txt" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -205,6 +206,24 @@
     <None Include="..\..\Plugins\AdvancedSessions\Resources\Icon128.png">
       <Filter>Plugins\AdvancedSessions\Resources</Filter>
     </None>
+    <Filter Include="Plugins\AdvancedSteamSessions">
+      <UniqueIdentifier>{740F8616-A9B4-3B9B-96D8-C61750798FBC}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\AdvancedSteamSessions\AdvancedSteamSessions.uplugin">
+      <Filter>Plugins\AdvancedSteamSessions</Filter>
+    </None>
+    <Filter Include="Plugins\AdvancedSteamSessions\Config">
+      <UniqueIdentifier>{FAC2C4EC-7334-384A-8858-3BBDEAA3AA42}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\AdvancedSteamSessions\Config\FilterPlugin.ini">
+      <Filter>Plugins\AdvancedSteamSessions\Config</Filter>
+    </None>
+    <Filter Include="Plugins\AdvancedSteamSessions\Resources">
+      <UniqueIdentifier>{889ED81C-A47F-3020-B7F3-EF01BA6AEB7F}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\AdvancedSteamSessions\Resources\Icon128.png">
+      <Filter>Plugins\AdvancedSteamSessions\Resources</Filter>
+    </None>
     <Filter Include="Plugins\MultiplayerSessions">
       <UniqueIdentifier>{B376FBB0-9029-37B4-9E5C-F55FC20DD6CD}</UniqueIdentifier>
     </Filter>
@@ -217,6 +236,54 @@
     <None Include="..\..\Plugins\MultiplayerSessions\Resources\Icon128.png">
       <Filter>Plugins\MultiplayerSessions\Resources</Filter>
     </None>
+    <Filter Include="Plugins\AdvancedSteamSessions\Source">
+      <UniqueIdentifier>{D96B0581-0D1E-3EAD-A89C-A9EE4E8E7D00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions">
+      <UniqueIdentifier>{F359A985-5132-30F3-B980-E2AC9F67A6AC}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\AdvancedSteamSessions.Build.cs">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions</Filter>
+    </None>
+    <Filter Include="Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes">
+      <UniqueIdentifier>{258A7927-0BE8-384F-801B-8DFB45E90123}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\AdvancedSteamFriendsLibrary.h">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\AdvancedSteamSessions.h">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\AdvancedSteamWorkshopLibrary.h">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\SteamNotificationsSubsystem.h">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\SteamRequestGroupOfficersCallbackProxy.h">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes\SteamWSRequestUGCDetailsCallbackProxy.h">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Classes</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private">
+      <UniqueIdentifier>{0597C23D-6485-3B4D-9707-FF52278B2B71}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private\AdvancedSteamFriendsLibrary.cpp">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private\AdvancedSteamSessions.cpp">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private\AdvancedSteamWorkshopLibrary.cpp">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private\SteamRequestGroupOfficersCallbackProxy.cpp">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private\SteamWSRequestUGCDetailsCallbackProxy.cpp">
+      <Filter>Plugins\AdvancedSteamSessions\Source\AdvancedSteamSessions\Private</Filter>
+    </ClCompile>
     <Filter Include="Plugins\MultiplayerSessions\Source">
       <UniqueIdentifier>{CAE7E189-351A-3AEF-AA65-9181E027D3DC}</UniqueIdentifier>
     </Filter>
@@ -274,6 +341,12 @@
     <Filter Include="Source\Voidwreck\Private\Background_Infrastructure">
       <UniqueIdentifier>{6F0590BD-8640-3B77-B7FD-876CF061664E}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWGameInstance.cpp">
+      <Filter>Source\Voidwreck\Private\Background_Infrastructure</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWGameInstance.h">
+      <Filter>Source\Voidwreck\Private\Background_Infrastructure</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Voidwreck\Private\Background_Infrastructure\VWGameplayTags.cpp">
       <Filter>Source\Voidwreck\Private\Background_Infrastructure</Filter>
     </ClCompile>
@@ -298,6 +371,12 @@
     <Filter Include="Source\Voidwreck\Private\Interfaces">
       <UniqueIdentifier>{C0FF48B0-2200-31A3-9C43-920B4DCF1208}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Interfaces\InteractableInterface.cpp">
+      <Filter>Source\Voidwreck\Private\Interfaces</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Interfaces\InteractableInterface.h">
+      <Filter>Source\Voidwreck\Private\Interfaces</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Voidwreck\Private\Interfaces\VWPlayerInterface.cpp">
       <Filter>Source\Voidwreck\Private\Interfaces</Filter>
     </ClCompile>
@@ -340,6 +419,15 @@
     <ClInclude Include="..\..\Source\Voidwreck\Private\Player\AbilitySystem\VWPlayerAttributeSet.h">
       <Filter>Source\Voidwreck\Private\Player\AbilitySystem</Filter>
     </ClInclude>
+    <Filter Include="Source\Voidwreck\Private\Player\AbilitySystem\Abilities">
+      <UniqueIdentifier>{B483FBAA-448F-31C5-B1B4-A25CC0203530}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Player\AbilitySystem\Abilities\VWGA_Interact.cpp">
+      <Filter>Source\Voidwreck\Private\Player\AbilitySystem\Abilities</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Player\AbilitySystem\Abilities\VWGA_Interact.h">
+      <Filter>Source\Voidwreck\Private\Player\AbilitySystem\Abilities</Filter>
+    </ClInclude>
     <Filter Include="Source\Voidwreck\Private\Player\Character">
       <UniqueIdentifier>{0B95E33B-14B8-316E-9BFA-B296BEFAAE41}</UniqueIdentifier>
     </Filter>
@@ -348,6 +436,21 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\Voidwreck\Private\Player\Character\FirstPersonCharacter.h">
       <Filter>Source\Voidwreck\Private\Player\Character</Filter>
+    </ClInclude>
+    <Filter Include="Source\Voidwreck\Private\Player\Equipment">
+      <UniqueIdentifier>{3CA89474-A0A9-35A4-9AF2-A56634E24A75}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Player\Equipment\VWEquipment.cpp">
+      <Filter>Source\Voidwreck\Private\Player\Equipment</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Player\Equipment\VWEquipment.h">
+      <Filter>Source\Voidwreck\Private\Player\Equipment</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Player\Equipment\VWEquipmentAttachment.cpp">
+      <Filter>Source\Voidwreck\Private\Player\Equipment</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Player\Equipment\VWEquipmentAttachment.h">
+      <Filter>Source\Voidwreck\Private\Player\Equipment</Filter>
     </ClInclude>
     <Filter Include="Source\Voidwreck\Private\Player\Input">
       <UniqueIdentifier>{59B2D881-C465-3B11-850C-727BB8A9E645}</UniqueIdentifier>
@@ -367,11 +470,50 @@
     <Filter Include="Source\Voidwreck\Private\UI">
       <UniqueIdentifier>{EC9DC574-3CC6-3645-96EB-E918F93637F8}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\InteractPrompt.cpp">
+      <Filter>Source\Voidwreck\Private\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\InteractPrompt.h">
+      <Filter>Source\Voidwreck\Private\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\VWHud.cpp">
+      <Filter>Source\Voidwreck\Private\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\VWHud.h">
+      <Filter>Source\Voidwreck\Private\UI</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Voidwreck\Private\UI\VWUserWidget.cpp">
       <Filter>Source\Voidwreck\Private\UI</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Voidwreck\Private\UI\VWUserWidget.h">
       <Filter>Source\Voidwreck\Private\UI</Filter>
+    </ClInclude>
+    <Filter Include="Source\Voidwreck\Private\UI\Loadout">
+      <UniqueIdentifier>{A80FAEBD-10A1-3A67-BE4B-5FCC71ADE2FC}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWCharacterMenuViewer.cpp">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWCharacterMenuViewer.h">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenuViewer.cpp">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenuViewer.h">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWLoadoutEquipmentList.cpp">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWLoadoutEquipmentList.h">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWLoadoutWidget.cpp">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWLoadoutWidget.h">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

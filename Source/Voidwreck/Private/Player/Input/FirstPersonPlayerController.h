@@ -10,6 +10,7 @@
 #include "UI/VWUserWidget.h"
 #include "FirstPersonPlayerController.generated.h"
 
+class UVWHud;
 /**
  * 
  */
@@ -25,6 +26,14 @@ public:
 
 	//Overridden to allow input to pe processed in batches
 	virtual void PostProcessInput(const float DeltaTime, const bool bGamePaused) override;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<UVWHud> HUDClass;
+	
+	UPROPERTY()
+	UVWHud* HUD = nullptr;
+
+	void SetupHud();
 
 	//This is to allow the player to use the pause key to back out of any menu
 	UPROPERTY(BlueprintReadWrite)

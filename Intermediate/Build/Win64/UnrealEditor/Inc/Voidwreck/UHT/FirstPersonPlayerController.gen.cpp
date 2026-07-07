@@ -9,12 +9,14 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFirstPersonPlayerController() {}
 // Cross Module References
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemInterface_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_Voidwreck();
 	VOIDWRECK_API UClass* Z_Construct_UClass_AFirstPersonPlayerController();
 	VOIDWRECK_API UClass* Z_Construct_UClass_AFirstPersonPlayerController_NoRegister();
+	VOIDWRECK_API UClass* Z_Construct_UClass_UVWHud_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWPlayerInterface_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWUserWidget_NoRegister();
 // End Cross Module References
@@ -139,6 +141,14 @@ void EmptyLinkFunctionForGeneratedCodeFirstPersonPlayerController() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HUDClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_HUDClass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HUD_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_HUD;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentWidget_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_CurrentWidget;
@@ -172,6 +182,20 @@ void EmptyLinkFunctionForGeneratedCodeFirstPersonPlayerController() {}
 	};
 #endif
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_HUDClass_MetaData[] = {
+		{ "Category", "FirstPersonPlayerController" },
+		{ "ModuleRelativePath", "Private/Player/Input/FirstPersonPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_HUDClass = { "HUDClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonPlayerController, HUDClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UVWHud_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_HUDClass_MetaData), Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_HUDClass_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_HUD_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Private/Player/Input/FirstPersonPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_HUD = { "HUD", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonPlayerController, HUD), Z_Construct_UClass_UVWHud_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_HUD_MetaData), Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_HUD_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_CurrentWidget_MetaData[] = {
 		{ "Category", "FirstPersonPlayerController" },
 #if !UE_BUILD_SHIPPING
@@ -193,6 +217,8 @@ void EmptyLinkFunctionForGeneratedCodeFirstPersonPlayerController() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_PlayerInputMappingContext = { "PlayerInputMappingContext", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonPlayerController, PlayerInputMappingContext), Z_Construct_UClass_UInputMappingContext_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_PlayerInputMappingContext_MetaData), Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_PlayerInputMappingContext_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFirstPersonPlayerController_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_HUDClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_HUD,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_CurrentWidget,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonPlayerController_Statics::NewProp_PlayerInputMappingContext,
 	};
@@ -240,9 +266,9 @@ void EmptyLinkFunctionForGeneratedCodeFirstPersonPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Input_FirstPersonPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFirstPersonPlayerController, AFirstPersonPlayerController::StaticClass, TEXT("AFirstPersonPlayerController"), &Z_Registration_Info_UClass_AFirstPersonPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonPlayerController), 3314356825U) },
+		{ Z_Construct_UClass_AFirstPersonPlayerController, AFirstPersonPlayerController::StaticClass, TEXT("AFirstPersonPlayerController"), &Z_Registration_Info_UClass_AFirstPersonPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonPlayerController), 955688420U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Input_FirstPersonPlayerController_h_4062662586(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Input_FirstPersonPlayerController_h_2218387966(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Input_FirstPersonPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Input_FirstPersonPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

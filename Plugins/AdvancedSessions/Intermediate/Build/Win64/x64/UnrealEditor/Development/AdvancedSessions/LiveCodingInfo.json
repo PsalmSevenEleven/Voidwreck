@@ -2,16 +2,17 @@
 	"RemapUnityFiles": 
 	{
 		"Module.AdvancedSessions.1.cpp.obj": [
+			"AdvancedExternalUILibrary.gen.cpp.obj",
 			"AdvancedFriendsGameInstance.gen.cpp.obj",
 			"AdvancedFriendsInterface.gen.cpp.obj",
 			"AdvancedFriendsLibrary.gen.cpp.obj",
 			"AdvancedGameSession.gen.cpp.obj",
-			"AdvancedExternalUILibrary.gen.cpp.obj",
 			"AdvancedIdentityLibrary.gen.cpp.obj",
 			"AdvancedSessions.init.gen.cpp.obj",
 			"AdvancedSessionsLibrary.gen.cpp.obj"
 		],
 		"Module.AdvancedSessions.2.cpp.obj": [
+			"AdvancedVoiceLibrary.gen.cpp.obj",
 			"AutoLoginUserCallbackProxy.gen.cpp.obj",
 			"BlueprintDataDefinitions.gen.cpp.obj",
 			"CancelFindSessionsCallbackProxy.gen.cpp.obj",
@@ -21,21 +22,20 @@
 			"FindSessionsCallbackProxyAdvanced.gen.cpp.obj",
 			"GetFriendsCallbackProxy.gen.cpp.obj",
 			"GetRecentPlayersCallbackProxy.gen.cpp.obj",
-			"GetUserPrivilegeCallbackProxy.gen.cpp.obj",
-			"AdvancedVoiceLibrary.gen.cpp.obj"
+			"GetUserPrivilegeCallbackProxy.gen.cpp.obj"
 		],
 		"Module.AdvancedSessions.3.cpp.obj": [
 			"LoginUserCallbackProxy.gen.cpp.obj",
 			"LogoutUserCallbackProxy.gen.cpp.obj",
 			"SendFriendInviteCallbackProxy.gen.cpp.obj",
+			"StartSessionCallbackProxyAdvanced.gen.cpp.obj",
 			"UpdateSessionCallbackProxyAdvanced.gen.cpp.obj",
+			"AdvancedExternalUILibrary.cpp.obj",
 			"AdvancedFriendsGameInstance.cpp.obj",
 			"AdvancedFriendsInterface.cpp.obj",
 			"AdvancedFriendsLibrary.cpp.obj",
-			"AdvancedSessions.cpp.obj",
-			"StartSessionCallbackProxyAdvanced.gen.cpp.obj",
-			"AdvancedExternalUILibrary.cpp.obj",
 			"AdvancedIdentityLibrary.cpp.obj",
+			"AdvancedSessions.cpp.obj",
 			"AdvancedSessionsLibrary.cpp.obj",
 			"AdvancedVoiceLibrary.cpp.obj",
 			"AutoLoginUserCallbackProxy.cpp.obj",

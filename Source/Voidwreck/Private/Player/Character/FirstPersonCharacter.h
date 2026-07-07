@@ -42,6 +42,16 @@ protected:
 	UPROPERTY(BlueprintReadOnly)
 	mutable const UVWPlayerAttributeSet* AttributeSet;
 
+	//Sets up default values for player attributes like health, movement speed, etc.
+	//Make usre it's always called after initting the player's AttributeSet
+	void InitAttributes();
+
+	bool bAttributesInitted = false;
+
+	//The effect to set the class's attributes
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly)
+	TSoftClassPtr<UGameplayEffect> AttributesEffect;
+
 	UPROPERTY()
 	AFirstPersonPlayerController* FirstPersonPlayerController;
 
@@ -50,6 +60,24 @@ protected:
 	virtual void PossessedBy(AController* NewController) override;
 
 	virtual void OnRep_PlayerState() override;
+
+	
+	void SetInteractTimer();
+
+	bool bHudCreated = false;
+	void CreateHud();
+	
+
+public:
+	UPROPERTY()
+	AActor* CurrentInteractable = nullptr;
+
+protected:
+	//Called about 30 times per second to ensure that the player knows if it's looking at an interactible.
+	//I would just call this during Look(), but if an interactible is capable of moving that would cause some... counterintuitive behavior.
+	//The player would be able to interact with things that move out of their line of sight as long as they don't move their mouse. 
+	void InteractCheck();
+	
 	
 #pragma region GAS
 	
@@ -66,17 +94,8 @@ protected:
 	void ActivateGASAbility(int32 Index, bool bOn);
 	
 #pragma endregion
-	
-#pragma region UI
-
-	// UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
-	// TSoftClassPtr<UVWUserWidget> PauseMenuClass;
-
-#pragma endregion
 
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 #pragma region Input
 	// Called to bind functionality to input
@@ -100,11 +119,6 @@ public:
 	void Move(const FInputActionValue& Value);
 
 	void Look(const FInputActionValue& Value);
-
-
-	
-
-
 
 #pragma endregion
 

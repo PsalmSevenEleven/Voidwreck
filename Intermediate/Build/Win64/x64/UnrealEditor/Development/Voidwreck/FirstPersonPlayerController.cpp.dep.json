@@ -133,7 +133,9 @@
             "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\playerstate.generated.h",
             "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwplayerstate.generated.h",
             "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\source\\voidwreck\\private\\player\\abilitysystem\\vwplayerabilitysystemcomponent.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwplayerabilitysystemcomponent.generated.h"
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwplayerabilitysystemcomponent.generated.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\source\\voidwreck\\private\\ui\\vwhud.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwhud.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
