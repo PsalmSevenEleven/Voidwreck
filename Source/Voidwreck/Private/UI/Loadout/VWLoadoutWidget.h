@@ -35,27 +35,30 @@ protected:
 	//Which of the saved loadouts we're currently editing
 	UPROPERTY(BlueprintReadWrite)
 	FLoadout CurrentLoadout;
+
+	TArray<FPrimaryAssetId> EquipmentToLoad;
+	TArray<FPrimaryAssetId> AttachmentsToLoad;
 	
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 	UVWLoadoutEquipmentList* EquipmentDA; 
-
-	int CharacterViewerMeshIndex = 0;
+	
 	
 	UPROPERTY(BlueprintReadWrite, meta = (ExposeOnSpawn))
 	AVWCharacterMenuViewer* CharacterMenuViewer;
 
 	UPROPERTY(BlueprintReadWrite, meta = (ExposeOnSpawn))
 	AVWEquipmentMenuViewer* EquipmentMenuViewer;
-
-	UFUNCTION(BlueprintCallable)
-	void LoadLoadout();
-
-	void UpdateCharacterViewer();
+	
 
 	virtual void NativeConstruct() override;
 	virtual void NativeDestruct() override;
 
-	virtual void LoadEquipmentCallback(FPrimaryAssetId AssetId);
+	UFUNCTION(BlueprintCallable)
+	void LoadLoadout();
+
+	virtual void LoadoutEquipmentLoadedCallback();
+
+	virtual void LoadoutAttachmentsLoadedCallback();
 
 public:
 

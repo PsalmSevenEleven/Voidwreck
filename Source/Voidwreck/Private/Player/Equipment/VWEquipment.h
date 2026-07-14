@@ -69,7 +69,7 @@ public:
 	FName SocketName; 
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
-	TArray<TSoftObjectPtr<UVWEquipmentAttachment>> AvailableAttachments;
+	TArray<FPrimaryAssetId> AvailableAttachments;
 };
 
 UCLASS()
@@ -106,5 +106,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly,EditDefaultsOnly)
 	TArray<FEquipmentAttachmentSlot> AttachmentSlots;
+
+	
 	
 };

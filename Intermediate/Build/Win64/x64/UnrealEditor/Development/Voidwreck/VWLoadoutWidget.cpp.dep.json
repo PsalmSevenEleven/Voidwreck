@@ -48,6 +48,7 @@
             "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\userwidget.generated.h",
             "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwuserwidget.generated.h",
             "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwloadoutwidget.generated.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\engine\\public\\skeletaldebugrendering.h",
             "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\source\\voidwreck\\private\\ui\\loadout\\vwcharactermenuviewer.h",
             "c:\\unrealenginesource\\engine\\source\\runtime\\engine\\classes\\camera\\cameracomponent.h",
             "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\cameracomponent.generated.h",
@@ -148,7 +149,9 @@
             "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\playerstate.generated.h",
             "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\source\\voidwreck\\private\\interfaces\\vwplayerinterface.h",
             "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwplayerinterface.generated.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwplayerstate.generated.h"
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwplayerstate.generated.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\source\\voidwreck\\private\\player\\equipment\\vwequipmentattachment.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwequipmentattachment.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

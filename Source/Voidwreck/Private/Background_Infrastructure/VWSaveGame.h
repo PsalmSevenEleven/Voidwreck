@@ -15,12 +15,14 @@ struct FEquipmentOptions
 	GENERATED_BODY()
 public:
 
+	FEquipmentOptions();
+	
 	UPROPERTY(BlueprintReadWrite)
 	int32 EquipmentIndex;
 
 	//This is a little opaque, so I'll explain.
-	//The 2d array below provides both the index of each attachment on a particular piece of equipment and any other options that the equipment allows.
-	//For example, the FEquipmentOptions struct that this is a part of is the ninth member (index 8) of the Equipment array in a Floadout.
+	//The 2d array below provides both the index of each attachment on a particular piece of equipment and any other options that the attachment allows.
+	//For example, let's say the FEquipmentOptions struct that this is a part of is the eighth member (index 7) of the Equipment array in a Floadout.
 	//That means that this is equipped in the 'Primary' slot and will be dealing with primary weapons.
 	//The EquipmentIndex variable will tell the savegame which gun the player has selected, and each row in AttachmentOptions will represent an attachment slot.
 	//The first index can be used to tell which attachment goes in the slot, because each equipment slot will have a list of available attachments for that slot.

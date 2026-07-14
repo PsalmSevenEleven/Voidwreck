@@ -17,6 +17,10 @@ public:
 	AVWCharacterMenuViewer();
 
 public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USceneComponent* Root;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UCameraComponent* Camera;
 	
@@ -26,5 +30,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<USkeletalMeshComponent*> EquipmentMeshes;
 	
-
+	TArray<TArray<USkeletalMeshComponent*>> AttachmentMeshes;
+	
+	UFUNCTION()
+	void SetupAttachmentMeshesForSlot(int32 EquipmentMeshIndex, const TArray<FName>& SocketNames);
 };

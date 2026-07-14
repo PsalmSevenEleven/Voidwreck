@@ -36,16 +36,11 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 
 }
 
-// Called when the game starts or when spawned
-void AFirstPersonCharacter::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
+
 
 void AFirstPersonCharacter::InitAttributes()
 {
-	if(!AttributesEffect.Get() )
+	if(!AttributesEffect.LoadSynchronous())
 	{
 		UE_LOG(LogTemp, Warning, TEXT("No attributes effect!"));
 		return;
@@ -68,7 +63,7 @@ void AFirstPersonCharacter::InitAttributes()
 	FGameplayEffectContextHandle EffectContext = AbilitySystemComponent->MakeEffectContext();
 	EffectContext.AddSourceObject(this);
 	
-	FGameplayEffectSpecHandle AttributesEffectHandle = AbilitySystemComponent->MakeOutgoingSpec(AttributesEffect.Get(), 1, EffectContext);
+	FGameplayEffectSpecHandle AttributesEffectHandle = AbilitySystemComponent->MakeOutgoingSpec(AttributesEffect.LoadSynchronous(),1, EffectContext);
 	if (AttributesEffectHandle.IsValid())
 	{
 		AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*AttributesEffectHandle.Data.Get(), AbilitySystemComponent);

@@ -3,6 +3,7 @@
 
 #include "UI/Loadout/VWLoadoutWidget.h"
 
+#include "SkeletalDebugRendering.h"
 #include "VWCharacterMenuViewer.h"
 #include "Background_Infrastructure/VWGameplayTags.h"
 #include "Background_Infrastructure/VWSaveGame.h"
@@ -11,81 +12,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Player/VWPlayerState.h"
 #include "Player/Equipment/VWEquipment.h"
+#include "Player/Equipment/VWEquipmentAttachment.h"
 
-void UVWLoadoutWidget::LoadLoadout()
-{
-	if(CharacterMenuViewer)
-	{
-		CharacterMenuViewer->CharacterMesh->SetVisibility(false);
-	}
-
-	CharacterViewerMeshIndex = 0;
-
-	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
-	if(!AssetManager)
-	{
-		return;
-	}
-
-	for(int i = 0; i<CurrentLoadout.Equipment.Num(); i++)
-	{
-		FVWPrimaryAssetID& EquipmentToLoad = EquipmentDA->EquipmentSlotCatalog[i].AvailableEquipmentForSlot[CurrentLoadout.Equipment[i].EquipmentIndex];
-
-		//If nothing is referenced, we don't need to do anything
-		if(EquipmentToLoad.PrimaryAssetId == FPrimaryAssetId())
-		{
-			CharacterMenuViewer->EquipmentMeshes[i]->SetSkeletalMeshAsset(nullptr);
-			continue;
-		}
-		
-		AssetManager->LoadPrimaryAsset(EquipmentToLoad.PrimaryAssetId,
-			TArray<FName>({FName("HubAndMission"), FName("HubOnly")}),
-			FStreamableDelegate::CreateUObject(this, &UVWLoadoutWidget::LoadEquipmentCallback, EquipmentToLoad.PrimaryAssetId));
-	}
-	
-	//
-	// for (int i = 0; i < (int32)EEquipmentSlot::Count; i++)
-	// {
-	// 	TArray<FAssetData> AssetData;
-	// 	if(!AssetManager->GetPrimaryAssetDataList(FPrimaryAssetType("VWCharacterEquipment"), AssetData))
-	// 	{
-	// 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("No assets found"));
-	// 		return;
-	// 	}
-	// 	
-	// 	FName AssetTypeName = FName("VWCharacterEquipment" + FString::FromInt(i));
-	// 	FPrimaryAssetType Type = FPrimaryAssetType(AssetTypeName);
-	// 	
-	// 	int IndexToLoad = SaveGame->Loadouts[SaveGame->SelectedLoadout].Equipment[i].EquipmentIndex;
-	// 	
-	// 	FPrimaryAssetId ID = FPrimaryAssetId(Type, AssetData[IndexToLoad].AssetName);
-	// 	
-	// 	AssetManager->LoadPrimaryAsset(ID, 
-	// 	TArray<FName>({FName("HubAndMission"), FName("HubOnly")}),
-	// 	FStreamableDelegate::CreateUObject(this, &UVWLoadoutWidget::LoadEquipmentCallback, ID));
-	// }
-
-	LoadingThrobber->SetVisibility(ESlateVisibility::Visible);
-
-	UpdateCharacterViewer();
-}
-
-void UVWLoadoutWidget::UpdateCharacterViewer()
-{
-	// for (int i = 0; i< CharacterMenuViewer->EquipmentMeshes.Num(); i++)
-	// {
-	// 	int SelectedEquipment = CurrentLoadout.Equipment[i].EquipmentIndex;
-	// 	if(!EquipmentDA->EquipmentSlotCatalog[i].AvailableEquipmentForSlot[SelectedEquipment])
-	// 	{
-	// 		continue;
-	// 	}
-	// 	USkeletalMesh* NewMesh =  EquipmentDA->EquipmentSlotCatalog[i].AvailableEquipmentForSlot[SelectedEquipment]->Mesh.Get();
-	// 	if(NewMesh)
-	// 	{
-	// 		CharacterMenuViewer->EquipmentMeshes[i]->SetSkeletalMeshAsset(NewMesh);
-	// 	}
-	// }
-}
 
 void UVWLoadoutWidget::NativeConstruct()
 {
@@ -135,7 +63,47 @@ void UVWLoadoutWidget::NativeDestruct()
 	Super::NativeDestruct();
 }
 
-void UVWLoadoutWidget::LoadEquipmentCallback(FPrimaryAssetId AssetId)
+void UVWLoadoutWidget::LoadLoadout()
+{
+	if(CharacterMenuViewer)
+	{
+		CharacterMenuViewer->CharacterMesh->SetVisibility(false);
+	}
+	
+	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
+	if(!AssetManager)
+	{
+		return;
+	}
+	
+	EquipmentToLoad.Reset();
+	AttachmentsToLoad.Reset();
+	
+	for(int i = 0; i<CurrentLoadout.Equipment.Num(); i++)
+	{
+		if(EquipmentDA->EquipmentSlotCatalog[i].AvailableEquipmentForSlot[CurrentLoadout.Equipment[i].EquipmentIndex].PrimaryAssetId.IsValid())
+		{
+			FVWPrimaryAssetID& NewEquipment = EquipmentDA->EquipmentSlotCatalog[i].AvailableEquipmentForSlot[CurrentLoadout.Equipment[i].EquipmentIndex];
+		
+			EquipmentToLoad.Emplace(NewEquipment.PrimaryAssetId);
+		}
+		else
+		{
+			EquipmentToLoad.Emplace(FPrimaryAssetId());
+		}
+		
+		
+	}
+
+	AssetManager->LoadPrimaryAssets(EquipmentToLoad,
+			TArray<FName>({FName("HubAndMission"), FName("HubOnly")}),
+			FStreamableDelegate::CreateUObject(this, &UVWLoadoutWidget::LoadoutEquipmentLoadedCallback));
+
+	
+	LoadingThrobber->SetVisibility(ESlateVisibility::Visible);
+}
+
+void UVWLoadoutWidget::LoadoutEquipmentLoadedCallback()
 {
 	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
 	if(!AssetManager)
@@ -143,14 +111,80 @@ void UVWLoadoutWidget::LoadEquipmentCallback(FPrimaryAssetId AssetId)
 		return;
 	}
 
-	UVWEquipment* LoadedEquipment = AssetManager->GetPrimaryAssetObject<UVWEquipment>(AssetId);
-	if(!LoadedEquipment)
+	//All of the equipment we loaded earlier, in order by slot
+	for(int i = 0; i<EquipmentToLoad.Num(); i++)
+	{
+		UVWEquipment* LoadedEquipment = AssetManager->GetPrimaryAssetObject<UVWEquipment>(EquipmentToLoad[i]);
+		if(!LoadedEquipment)
+		{
+			CharacterMenuViewer->EquipmentMeshes[i]->SetSkeletalMeshAsset(nullptr);
+			
+			//GEngine->AddOnScreenDebugMessage(-1, 30, FColor::Orange, FString("no mesh for slot " + FString::FromInt(i)));
+			continue;
+		}
+		CharacterMenuViewer->EquipmentMeshes[i]->SetSkeletalMeshAsset(LoadedEquipment->Mesh.LoadSynchronous());
+
+		TArray<FName> AttachmentSlotNames;
+
+		for(FEquipmentAttachmentSlot AttachmentSlot : LoadedEquipment->AttachmentSlots)
+		{
+			AttachmentSlotNames.Emplace(AttachmentSlot.SocketName);
+		}
+		
+		//ready the attachment meshes
+		CharacterMenuViewer->SetupAttachmentMeshesForSlot(i, AttachmentSlotNames);
+		
+
+		for(int j = 0; j < LoadedEquipment->AttachmentSlots.Num(); j++)
+		{
+			//The first index of each AttachmentOptions row is the attachment to use,
+			//and the subsequent ones are for attachment-specific customization
+			int SelectedAttachmentForSlot = CurrentLoadout.Equipment[i].AttachmentOptions[j][0];
+			AttachmentsToLoad.Emplace(LoadedEquipment->AttachmentSlots[j].AvailableAttachments[SelectedAttachmentForSlot]);
+		}
+	}
+
+	AssetManager->LoadPrimaryAssets(AttachmentsToLoad,
+			TArray<FName>({FName("HubAndMission"), FName("HubOnly")}),
+			FStreamableDelegate::CreateUObject(this, &UVWLoadoutWidget::LoadoutAttachmentsLoadedCallback));
+	
+
+	
+}
+
+void UVWLoadoutWidget::LoadoutAttachmentsLoadedCallback()
+{
+	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
+	if(!AssetManager)
 	{
 		return;
 	}
 
-	CharacterMenuViewer->EquipmentMeshes[CharacterViewerMeshIndex]->SetSkeletalMeshAsset(LoadedEquipment->Mesh.LoadSynchronous());
-	CharacterViewerMeshIndex++;
+	int AttachmentIndexOffset = 0;
+
+	//All of the equipment we loaded earlier, in order by slot
+	for(int i = 0; i<EquipmentToLoad.Num(); i++)
+	{
+		UVWEquipment* LoadedEquipment = AssetManager->GetPrimaryAssetObject<UVWEquipment>(EquipmentToLoad[i]);
+		if(!LoadedEquipment)
+		{
+			//GEngine->AddOnScreenDebugMessage(-1, 30, FColor::Orange, FString("no mesh for slot " + FString::FromInt(i)));
+			continue;
+		}
+
+		for(int j = 0; j < LoadedEquipment->AttachmentSlots.Num(); j++)
+		{
+			UVWEquipmentAttachment* LoadedAttachment = AssetManager->GetPrimaryAssetObject<UVWEquipmentAttachment>(AttachmentsToLoad[j + AttachmentIndexOffset]);
+			
+			CharacterMenuViewer->AttachmentMeshes[i][j]->SetSkeletalMeshAsset(LoadedAttachment->Mesh.LoadSynchronous());
+			//DrawDebugSphere(GetWorld(), CharacterMenuViewer->AttachmentMeshes[i][j]->GetComponentLocation(), 10.f, 8, FColor::White, false, 30, 0, 2.f);
+		}
+
+		AttachmentIndexOffset += LoadedEquipment->AttachmentSlots.Num();
+	}
+
+	CharacterMenuViewer->CharacterMesh->SetVisibility(true);
+	LoadingThrobber->SetVisibility(ESlateVisibility::Collapsed);
 }
 
 void UVWLoadoutWidget::InitMenu()
