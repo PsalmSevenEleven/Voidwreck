@@ -14,11 +14,13 @@ C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Pr
 C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\Player\Equipment\VWEquipment.h
 C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\Player\Equipment\VWEquipmentAttachment.h
 C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\Player\Input\FirstPersonPlayerController.h
-C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\Player\Input\VWMappableKeySettings.h
 C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\UI\InteractPrompt.h
 C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\UI\VWHud.h
+C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\Player\Input\VWMappableKeySettings.h
 C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\UI\VWUserWidget.h
 C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\UI\Loadout\VWCharacterMenuViewer.h
-C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\UI\Loadout\VWLoadoutEquipmentList.h
-C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\UI\Loadout\VWLoadoutWidget.h
 C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenuViewer.h
+C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenu.h
+C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\UI\Loadout\VWLoadoutEquipmentButton.h
+C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\UI\Loadout\VWLoadoutWidget.h
+C:\Users\Caleb\Documents\Unreal Projects\Voidwreck\Voidwreck\Source\Voidwreck\Private\UI\Loadout\VWLoadoutEquipmentList.h

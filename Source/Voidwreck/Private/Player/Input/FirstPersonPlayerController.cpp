@@ -52,3 +52,11 @@ UAbilitySystemComponent* AFirstPersonPlayerController::GetAbilitySystemComponent
 	}
 	return nullptr;
 }
+
+void AFirstPersonPlayerController::SetHudVisibility_Implementation(ESlateVisibility Visibility)
+{
+	if(HUD)
+	{
+		HUD->SetVisibility(Visibility);
+	}
+}

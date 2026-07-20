@@ -49,8 +49,8 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipment() {}
 		{ "EEquipmentSlot::Eyes", (int64)EEquipmentSlot::Eyes },
 		{ "EEquipmentSlot::Face", (int64)EEquipmentSlot::Face },
 		{ "EEquipmentSlot::Torso", (int64)EEquipmentSlot::Torso },
-		{ "EEquipmentSlot::Arm", (int64)EEquipmentSlot::Arm },
-		{ "EEquipmentSlot::Leg", (int64)EEquipmentSlot::Leg },
+		{ "EEquipmentSlot::Arms", (int64)EEquipmentSlot::Arms },
+		{ "EEquipmentSlot::Legs", (int64)EEquipmentSlot::Legs },
 		{ "EEquipmentSlot::Feet", (int64)EEquipmentSlot::Feet },
 		{ "EEquipmentSlot::Back", (int64)EEquipmentSlot::Back },
 		{ "EEquipmentSlot::Primary", (int64)EEquipmentSlot::Primary },
@@ -59,8 +59,8 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipment() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_Voidwreck_EEquipmentSlot_Statics::Enum_MetaDataParams[] = {
-		{ "Arm.DisplayName", "Arm" },
-		{ "Arm.Name", "EEquipmentSlot::Arm" },
+		{ "Arms.DisplayName", "Arm" },
+		{ "Arms.Name", "EEquipmentSlot::Arms" },
 		{ "Back.DisplayName", "Back" },
 		{ "Back.Name", "EEquipmentSlot::Back" },
 #if !UE_BUILD_SHIPPING
@@ -78,8 +78,8 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipment() {}
 		{ "Feet.Name", "EEquipmentSlot::Feet" },
 		{ "Head.DisplayName", "Head" },
 		{ "Head.Name", "EEquipmentSlot::Head" },
-		{ "Leg.DisplayName", "Leg" },
-		{ "Leg.Name", "EEquipmentSlot::Leg" },
+		{ "Legs.DisplayName", "Legs" },
+		{ "Legs.Name", "EEquipmentSlot::Legs" },
 		{ "ModuleRelativePath", "Private/Player/Equipment/VWEquipment.h" },
 		{ "Primary.DisplayName", "Primary" },
 		{ "Primary.Name", "EEquipmentSlot::Primary" },
@@ -375,7 +375,7 @@ template<> VOIDWRECK_API UScriptStruct* StaticStruct<FEquipmentAttachmentSlot>()
 		{ "ModuleRelativePath", "Private/Player/Equipment/VWEquipment.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UVWEquipment_Statics::NewProp_Slot = { "Slot", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWEquipment, Slot), Z_Construct_UEnum_Voidwreck_EEquipmentSlot, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipment_Statics::NewProp_Slot_MetaData), Z_Construct_UClass_UVWEquipment_Statics::NewProp_Slot_MetaData) }; // 129017117
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UVWEquipment_Statics::NewProp_Slot = { "Slot", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWEquipment, Slot), Z_Construct_UEnum_Voidwreck_EEquipmentSlot, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipment_Statics::NewProp_Slot_MetaData), Z_Construct_UClass_UVWEquipment_Statics::NewProp_Slot_MetaData) }; // 2384897542
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWEquipment_Statics::NewProp_Weight_MetaData[] = {
 		{ "Category", "VWEquipment" },
@@ -489,16 +489,16 @@ template<> VOIDWRECK_API UScriptStruct* StaticStruct<FEquipmentAttachmentSlot>()
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::EnumInfo[] = {
-		{ EEquipmentSlot_StaticEnum, TEXT("EEquipmentSlot"), &Z_Registration_Info_UEnum_EEquipmentSlot, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 129017117U) },
+		{ EEquipmentSlot_StaticEnum, TEXT("EEquipmentSlot"), &Z_Registration_Info_UEnum_EEquipmentSlot, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2384897542U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::ScriptStructInfo[] = {
 		{ FVWPrimaryAssetID::StaticStruct, Z_Construct_UScriptStruct_FVWPrimaryAssetID_Statics::NewStructOps, TEXT("VWPrimaryAssetID"), &Z_Registration_Info_UScriptStruct_VWPrimaryAssetID, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FVWPrimaryAssetID), 2668140360U) },
 		{ FEquipmentAttachmentSlot::StaticStruct, Z_Construct_UScriptStruct_FEquipmentAttachmentSlot_Statics::NewStructOps, TEXT("EquipmentAttachmentSlot"), &Z_Registration_Info_UScriptStruct_EquipmentAttachmentSlot, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEquipmentAttachmentSlot), 2612340630U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UVWEquipment, UVWEquipment::StaticClass, TEXT("UVWEquipment"), &Z_Registration_Info_UClass_UVWEquipment, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWEquipment), 2483865504U) },
+		{ Z_Construct_UClass_UVWEquipment, UVWEquipment::StaticClass, TEXT("UVWEquipment"), &Z_Registration_Info_UClass_UVWEquipment, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWEquipment), 3559499175U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_1115554052(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_2273541190(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::EnumInfo));

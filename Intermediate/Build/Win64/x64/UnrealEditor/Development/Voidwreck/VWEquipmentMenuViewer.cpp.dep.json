@@ -9,7 +9,12 @@
             "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\source\\voidwreck\\private\\ui\\loadout\\vwequipmentmenuviewer.h",
             "c:\\unrealenginesource\\engine\\source\\runtime\\engine\\classes\\camera\\cameracomponent.h",
             "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\cameracomponent.generated.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwequipmentmenuviewer.generated.h"
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwequipmentmenuviewer.generated.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\source\\voidwreck\\private\\player\\equipment\\vwequipment.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\gameplaytags\\classes\\gameplaytagcontainer.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\core\\public\\misc\\comparisonutility.h",
+            "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplaytags\\uht\\gameplaytagcontainer.generated.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwequipment.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

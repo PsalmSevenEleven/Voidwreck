@@ -210,7 +210,7 @@ void AFirstPersonCharacter::InteractCheck()
 	}
 	
 	int32 InteractionDistance = AttributeSet->GetInteractionDistance();
-	GEngine->AddOnScreenDebugMessage(-1, 0.033f, FColor::Green, FString::FromInt(InteractionDistance));
+	//GEngine->AddOnScreenDebugMessage(-1, 0.033f, FColor::Green, FString::FromInt(InteractionDistance));
 	
 	GetWorld()->LineTraceSingleByChannel(HitResult, FollowCamera->GetComponentLocation(), FollowCamera->GetComponentLocation() + FollowCamera->GetForwardVector() * InteractionDistance, ECollisionChannel::ECC_GameTraceChannel1, CollisionParams);
 	

@@ -3,8 +3,11 @@
 
 #include "UI/Loadout/VWLoadoutWidget.h"
 
-#include "SkeletalDebugRendering.h"
+
 #include "VWCharacterMenuViewer.h"
+#include "VWEquipmentMenu.h"
+#include "VWEquipmentMenuViewer.h"
+#include "VWLoadoutEquipmentButton.h"
 #include "Background_Infrastructure/VWGameplayTags.h"
 #include "Background_Infrastructure/VWSaveGame.h"
 #include "Components/Throbber.h"
@@ -15,12 +18,15 @@
 #include "Player/Equipment/VWEquipmentAttachment.h"
 
 
+class UVWEquipmentMenu;
+
+
+
 void UVWLoadoutWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
-
-	//TODO - reimplement this
-	//IPlayerInterface::Execute_SetHudVisibility(GetOwningPlayer(), ESlateVisibility::Collapsed);
+	
+	IVWPlayerInterface::Execute_SetHudVisibility(GetOwningPlayer(), ESlateVisibility::Collapsed);
 	
 	SaveGame = Cast<UVWSaveGame>(UGameplayStatics::LoadGameFromSlot("SaveGame", 0));
 
@@ -35,8 +41,18 @@ void UVWLoadoutWidget::NativeConstruct()
 
 	CurrentLoadout = SaveGame->Loadouts[SaveGame->SelectedLoadout];
 
-	LoadLoadout();
+	HeadSlotButton->LoadoutWidget = this;
+	EyesSlotButton->LoadoutWidget = this;
+	FaceSlotButton->LoadoutWidget = this;
+	TorsoSlotButton->LoadoutWidget = this;
+	ArmsSlotButton->LoadoutWidget = this;
+	LegsSlotButton->LoadoutWidget = this;
+	FeetSlotButton->LoadoutWidget = this;
+	BackSlotButton->LoadoutWidget = this;
+	PrimarySlotButton->LoadoutWidget = this;
+	SecondarySlotButton->LoadoutWidget = this;
 	
+	LoadLoadout();
 }
 
 void UVWLoadoutWidget::NativeDestruct()
@@ -53,12 +69,26 @@ void UVWLoadoutWidget::NativeDestruct()
 	{
 		CharacterMenuViewer->Destroy();
 	}
+	if(EquipmentMenuViewer)
+	{
+		EquipmentMenuViewer->Destroy();
+	}
+	
+	if(GetOwningPlayer() && GetOwningPlayer()->GetClass()->ImplementsInterface(UVWPlayerInterface::StaticClass()))
+	{
+		IVWPlayerInterface::Execute_SetHudVisibility(GetOwningPlayer(), ESlateVisibility::Visible);
+	}
+	
 
-	//TODO - Reimplement this once I have a hud
-	// if(GetOwningPlayer() && GetOwningPlayer()->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()))
-	// {
-	// 	IPlayerInterface::Execute_SetHudVisibility(GetOwningPlayer(), ESlateVisibility::Visible);
-	// }
+	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
+	if(!AssetManager)
+	{
+		Super::NativeDestruct();
+		return;
+	}
+
+	AssetManager->UnloadPrimaryAssetsWithType(FPrimaryAssetType("VWEquipment"));
+	AssetManager->UnloadPrimaryAssetsWithType(FPrimaryAssetType("VWEquipmentAttachment"));
 	
 	Super::NativeDestruct();
 }
@@ -148,7 +178,6 @@ void UVWLoadoutWidget::LoadoutEquipmentLoadedCallback()
 			TArray<FName>({FName("HubAndMission"), FName("HubOnly")}),
 			FStreamableDelegate::CreateUObject(this, &UVWLoadoutWidget::LoadoutAttachmentsLoadedCallback));
 	
-
 	
 }
 
@@ -185,6 +214,81 @@ void UVWLoadoutWidget::LoadoutAttachmentsLoadedCallback()
 
 	CharacterMenuViewer->CharacterMesh->SetVisibility(true);
 	LoadingThrobber->SetVisibility(ESlateVisibility::Collapsed);
+}
+
+
+void UVWLoadoutWidget::ShowEquipmentListForSlot(const EEquipmentSlot& InEquipmentSlot)
+{
+	if(GetOwningPlayer() && GetOwningPlayerPawn())
+	{
+		GetOwningPlayer()->SetViewTarget(EquipmentMenuViewer);
+	}
+	
+	SetupEquipmentMenuViewer(InEquipmentSlot);
+	
+	SetVisibility(ESlateVisibility::Collapsed);
+	UVWEquipmentMenu* EquipmentMenu = Cast<UVWEquipmentMenu>(CreateWidget(this, UVWEquipmentMenu::StaticClass()));
+	if(!EquipmentMenu)
+	{
+		return;
+	}
+
+	EquipmentMenu->Parent = this;
+	EquipmentMenu->EquipmentMenuViewer = EquipmentMenuViewer;
+	
+}
+
+void UVWLoadoutWidget::SetupEquipmentMenuViewer(EEquipmentSlot InEquipmentSlot)
+{
+	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
+	if(!AssetManager)
+	{
+		return;
+	}
+
+	int32 EquipmentIndex = CurrentLoadout.Equipment[int(InEquipmentSlot)].EquipmentIndex;
+	FPrimaryAssetId EquipmentId = EquipmentDA->EquipmentSlotCatalog[int32(InEquipmentSlot)].AvailableEquipmentForSlot[EquipmentIndex].PrimaryAssetId;
+
+	UVWEquipment* LoadedEquipment = AssetManager->GetPrimaryAssetObject<UVWEquipment>(EquipmentId);
+
+	EquipmentMenuViewer->EquipmentMesh->SetSkeletalMeshAsset(LoadedEquipment->Mesh.LoadSynchronous());
+
+	EquipmentMenuViewer->SetupMeshes(LoadedEquipment);
+
+	//TODO - Unload unnecessary attachment assets
+
+	AttachmentsForEquipmentViewer.Reset();
+	
+	for(int i = 0; i < LoadedEquipment->AttachmentSlots.Num(); i++)
+	{
+		//The first index of each AttachmentOptions row is the attachment to use,
+		//and the subsequent ones are for attachment-specific customization
+		int SelectedAttachmentForSlot = CurrentLoadout.Equipment[int32(InEquipmentSlot)].AttachmentOptions[i][0];
+		AttachmentsForEquipmentViewer.Emplace(LoadedEquipment->AttachmentSlots[i].AvailableAttachments[SelectedAttachmentForSlot]);
+	}
+
+	
+	
+	AssetManager->LoadPrimaryAssets(AttachmentsForEquipmentViewer,
+		TArray<FName>({FName("HubOnly"), FName("HubAndMission")}),
+		FStreamableDelegate::CreateUObject(this, &UVWLoadoutWidget::EquipmentViewerAttachmentsLoadedCallback));
+	
+}
+
+void UVWLoadoutWidget::EquipmentViewerAttachmentsLoadedCallback()
+{
+	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
+	if(!AssetManager)
+	{
+		return;
+	}
+	
+
+	for(int i = 0; i < EquipmentMenuViewer->AttachmentMeshes.Num(); i++)
+	{
+		UVWEquipmentAttachment* Attachment = AssetManager->GetPrimaryAssetObject<UVWEquipmentAttachment>(AttachmentsForEquipmentViewer[i]);
+		EquipmentMenuViewer->AttachmentMeshes[i]->SetSkeletalMeshAsset(Attachment->Mesh.LoadSynchronous());
+	}
 }
 
 void UVWLoadoutWidget::InitMenu()

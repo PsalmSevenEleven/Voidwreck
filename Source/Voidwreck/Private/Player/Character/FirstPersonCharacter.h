@@ -123,7 +123,9 @@ public:
 	//Ability System Interface
 	UFUNCTION()
 	UAbilitySystemComponent* GetAbilitySystemComponent() const override;
-	
+
+
+	//Player Interface
 	UFUNCTION()
 	UVWUserWidget* GetCurrentWidget_Implementation() const override;
 	

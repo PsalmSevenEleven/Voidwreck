@@ -82,8 +82,8 @@ template<> VOIDWRECK_API UClass* StaticClass<class UVWEquipment>();
 	op(EEquipmentSlot::Eyes) \
 	op(EEquipmentSlot::Face) \
 	op(EEquipmentSlot::Torso) \
-	op(EEquipmentSlot::Arm) \
-	op(EEquipmentSlot::Leg) \
+	op(EEquipmentSlot::Arms) \
+	op(EEquipmentSlot::Legs) \
 	op(EEquipmentSlot::Feet) \
 	op(EEquipmentSlot::Back) \
 	op(EEquipmentSlot::Primary) \

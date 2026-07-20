@@ -704,12 +704,24 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWCharacterMenuViewer.h"/>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenu.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenu.h"/>
     <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenuViewer.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenuViewer.h"/>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWLoadoutEquipmentButton.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWLoadoutEquipmentButton.h"/>
     <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWLoadoutEquipmentList.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>

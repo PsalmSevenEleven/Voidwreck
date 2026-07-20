@@ -497,10 +497,22 @@
     <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWCharacterMenuViewer.h">
       <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenu.cpp">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenu.h">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenuViewer.cpp">
       <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWEquipmentMenuViewer.h">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWLoadoutEquipmentButton.cpp">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWLoadoutEquipmentButton.h">
       <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWLoadoutEquipmentList.cpp">

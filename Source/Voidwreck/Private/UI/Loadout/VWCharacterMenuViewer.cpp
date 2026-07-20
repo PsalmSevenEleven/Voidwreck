@@ -65,7 +65,7 @@ void AVWCharacterMenuViewer::SetupAttachmentMeshesForSlot(int32 EquipmentMeshInd
 		}
 		else
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 30, FColor::Red, "Add your sockets to the CharacterMenuViewer's mesh, genius.");
+			UE_LOG(LogTemp, Warning, TEXT("Add your sockets to the CharacterMenuViewer's mesh, genius."));
 			NewMesh->SetupAttachment(EquipmentMeshes[EquipmentMeshIndex]);
 		}
 		NewMesh->RegisterComponent();

@@ -10,7 +10,9 @@
 #include "VWLoadoutWidget.generated.h"
 
 
+
 class UVWSaveGame;
+class UVWLoadoutEquipmentButton;
 class UThrobber;
 class AVWCharacterMenuViewer;
 class AVWEquipmentMenuViewer;
@@ -27,6 +29,39 @@ class UVWLoadoutWidget : public UVWUserWidget
 protected:
 #pragma region UI Elements
 
+#pragma region Depot Buttons
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UVWLoadoutEquipmentButton* HeadSlotButton;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UVWLoadoutEquipmentButton* EyesSlotButton;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UVWLoadoutEquipmentButton* FaceSlotButton;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UVWLoadoutEquipmentButton* TorsoSlotButton;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UVWLoadoutEquipmentButton* ArmsSlotButton;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UVWLoadoutEquipmentButton* LegsSlotButton;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UVWLoadoutEquipmentButton* FeetSlotButton;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UVWLoadoutEquipmentButton* BackSlotButton;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UVWLoadoutEquipmentButton* PrimarySlotButton;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UVWLoadoutEquipmentButton* SecondarySlotButton;
+	
+#pragma endregion
+	
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	UThrobber* LoadingThrobber;
 	
@@ -49,6 +84,15 @@ protected:
 	UPROPERTY(BlueprintReadWrite, meta = (ExposeOnSpawn))
 	AVWEquipmentMenuViewer* EquipmentMenuViewer;
 	
+	TArray<FPrimaryAssetId> AttachmentsForEquipmentViewer;
+	
+	UFUNCTION()
+	void SetupEquipmentMenuViewer(EEquipmentSlot InEquipmentSlot);
+
+	void EquipmentViewerAttachmentsLoadedCallback();
+
+	
+	
 
 	virtual void NativeConstruct() override;
 	virtual void NativeDestruct() override;
@@ -64,6 +108,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	virtual void InitMenu();
+
+	void ShowEquipmentListForSlot(const EEquipmentSlot& InEquipmentSlot);
 
 	UPROPERTY(BlueprintReadWrite)
 	UVWSaveGame* SaveGame;

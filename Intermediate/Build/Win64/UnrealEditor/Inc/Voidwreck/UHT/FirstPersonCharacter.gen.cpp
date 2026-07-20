@@ -212,7 +212,13 @@ void EmptyLinkFunctionForGeneratedCodeFirstPersonCharacter() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFirstPersonCharacter_GetCurrentWidget_Implementation_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//Player Interface\n" },
+#endif
 		{ "ModuleRelativePath", "Private/Player/Character/FirstPersonCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Player Interface" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFirstPersonCharacter_GetCurrentWidget_Implementation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFirstPersonCharacter, nullptr, "GetCurrentWidget_Implementation", nullptr, nullptr, Z_Construct_UFunction_AFirstPersonCharacter_GetCurrentWidget_Implementation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFirstPersonCharacter_GetCurrentWidget_Implementation_Statics::PropPointers), sizeof(Z_Construct_UFunction_AFirstPersonCharacter_GetCurrentWidget_Implementation_Statics::FirstPersonCharacter_eventGetCurrentWidget_Implementation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFirstPersonCharacter_GetCurrentWidget_Implementation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFirstPersonCharacter_GetCurrentWidget_Implementation_Statics::Function_MetaDataParams) };
@@ -372,7 +378,7 @@ void EmptyLinkFunctionForGeneratedCodeFirstPersonCharacter() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AFirstPersonCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFirstPersonCharacter_ActivateGASAbility, "ActivateGASAbility" }, // 3018488445
 		{ &Z_Construct_UFunction_AFirstPersonCharacter_GetAbilitySystemComponent, "GetAbilitySystemComponent" }, // 1164799256
-		{ &Z_Construct_UFunction_AFirstPersonCharacter_GetCurrentWidget_Implementation, "GetCurrentWidget_Implementation" }, // 595489181
+		{ &Z_Construct_UFunction_AFirstPersonCharacter_GetCurrentWidget_Implementation, "GetCurrentWidget_Implementation" }, // 166455494
 		{ &Z_Construct_UFunction_AFirstPersonCharacter_Server_RequestAbilities, "Server_RequestAbilities" }, // 1612493686
 		{ &Z_Construct_UFunction_AFirstPersonCharacter_SetCurrentWidget_Implementation, "SetCurrentWidget_Implementation" }, // 1058383524
 	};
@@ -525,9 +531,9 @@ void EmptyLinkFunctionForGeneratedCodeFirstPersonCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Character_FirstPersonCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 1245133459U) },
+		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 51674041U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Character_FirstPersonCharacter_h_2205065533(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Character_FirstPersonCharacter_h_2305775131(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Character_FirstPersonCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Character_FirstPersonCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

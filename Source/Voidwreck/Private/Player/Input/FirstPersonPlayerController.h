@@ -51,4 +51,7 @@ protected:
 	UFUNCTION()
 	void SetCurrentWidget_Implementation(UVWUserWidget* NewWidget) override {CurrentWidget = NewWidget;}
 
+	UFUNCTION()
+	void SetHudVisibility_Implementation(ESlateVisibility Visibility) override;
+
 };

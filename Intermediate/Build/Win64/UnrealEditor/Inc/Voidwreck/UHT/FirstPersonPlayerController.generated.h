@@ -10,6 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UVWUserWidget;
+enum class ESlateVisibility : uint8;
 #ifdef VOIDWRECK_FirstPersonPlayerController_generated_h
 #error "FirstPersonPlayerController.generated.h already included, missing '#pragma once' in FirstPersonPlayerController.h"
 #endif
@@ -20,6 +21,7 @@ class UVWUserWidget;
 #define FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Input_FirstPersonPlayerController_h_20_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Input_FirstPersonPlayerController_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetHudVisibility_Implementation); \
 	DECLARE_FUNCTION(execSetCurrentWidget_Implementation); \
 	DECLARE_FUNCTION(execGetCurrentWidget_Implementation);
 
