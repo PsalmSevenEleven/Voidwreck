@@ -100,6 +100,9 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 	TSoftObjectPtr<UImage> Thumbnail;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	FText DisplayName;
 	
 	UPROPERTY(BlueprintReadOnly,EditDefaultsOnly, meta = (AssetBundles = "HubAndMission"))
 	TSoftObjectPtr<USkeletalMesh> Mesh;

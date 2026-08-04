@@ -10,10 +10,12 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 // Cross Module References
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	UMG_API UClass* Z_Construct_UClass_UThrobber_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_Voidwreck();
 	VOIDWRECK_API UClass* Z_Construct_UClass_AVWCharacterMenuViewer_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_AVWEquipmentMenuViewer_NoRegister();
+	VOIDWRECK_API UClass* Z_Construct_UClass_UVWEquipmentMenu_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWLoadoutEquipmentButton_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWLoadoutEquipmentList_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWLoadoutWidget();
@@ -209,6 +211,10 @@ void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_EquipmentMenuViewer;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EquipmentMenuClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_EquipmentMenuClass;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SaveGame_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_SaveGame;
@@ -372,6 +378,13 @@ void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_EquipmentMenuViewer = { "EquipmentMenuViewer", nullptr, (EPropertyFlags)0x0021080000000004, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWLoadoutWidget, EquipmentMenuViewer), Z_Construct_UClass_AVWEquipmentMenuViewer_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_EquipmentMenuViewer_MetaData), Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_EquipmentMenuViewer_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_EquipmentMenuClass_MetaData[] = {
+		{ "Category", "VWLoadoutWidget" },
+		{ "ModuleRelativePath", "Private/UI/Loadout/VWLoadoutWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_EquipmentMenuClass = { "EquipmentMenuClass", nullptr, (EPropertyFlags)0x0024080000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWLoadoutWidget, EquipmentMenuClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UVWEquipmentMenu_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_EquipmentMenuClass_MetaData), Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_EquipmentMenuClass_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_SaveGame_MetaData[] = {
 		{ "Category", "VWLoadoutWidget" },
 		{ "ModuleRelativePath", "Private/UI/Loadout/VWLoadoutWidget.h" },
@@ -394,6 +407,7 @@ void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_EquipmentDA,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_CharacterMenuViewer,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_EquipmentMenuViewer,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_EquipmentMenuClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_SaveGame,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UVWLoadoutWidget_Statics::StaticCppClassTypeInfo = {
@@ -435,9 +449,9 @@ void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UVWLoadoutWidget, UVWLoadoutWidget::StaticClass, TEXT("UVWLoadoutWidget"), &Z_Registration_Info_UClass_UVWLoadoutWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWLoadoutWidget), 1708220035U) },
+		{ Z_Construct_UClass_UVWLoadoutWidget, UVWLoadoutWidget::StaticClass, TEXT("UVWLoadoutWidget"), &Z_Registration_Info_UClass_UVWLoadoutWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWLoadoutWidget), 786955626U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_987935103(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_4239006144(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

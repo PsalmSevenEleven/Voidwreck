@@ -491,6 +491,18 @@
     <Filter Include="Source\Voidwreck\Private\UI\Loadout">
       <UniqueIdentifier>{A80FAEBD-10A1-3A67-BE4B-5FCC71ADE2FC}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentButton.cpp">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentButton.h">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentStoreButton.cpp">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentStoreButton.h">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWCharacterMenuViewer.cpp">
       <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
     </ClCompile>

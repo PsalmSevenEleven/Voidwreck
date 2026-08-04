@@ -23,6 +23,9 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 	TSoftObjectPtr<UImage> Thumbnail;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	FText DisplayName;
 	
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 	TSoftObjectPtr<USkeletalMesh> Mesh;

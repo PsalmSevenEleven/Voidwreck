@@ -217,7 +217,7 @@ void UVWLoadoutWidget::LoadoutAttachmentsLoadedCallback()
 }
 
 
-void UVWLoadoutWidget::ShowEquipmentListForSlot(const EEquipmentSlot& InEquipmentSlot)
+void UVWLoadoutWidget::ShowEquipmentMenuForSlot(const EEquipmentSlot& InEquipmentSlot)
 {
 	if(GetOwningPlayer() && GetOwningPlayerPawn())
 	{
@@ -227,7 +227,8 @@ void UVWLoadoutWidget::ShowEquipmentListForSlot(const EEquipmentSlot& InEquipmen
 	SetupEquipmentMenuViewer(InEquipmentSlot);
 	
 	SetVisibility(ESlateVisibility::Collapsed);
-	UVWEquipmentMenu* EquipmentMenu = Cast<UVWEquipmentMenu>(CreateWidget(this, UVWEquipmentMenu::StaticClass()));
+	
+	UVWEquipmentMenu* EquipmentMenu = Cast<UVWEquipmentMenu>(CreateWidget(this, EquipmentMenuClass));
 	if(!EquipmentMenu)
 	{
 		return;
@@ -235,6 +236,22 @@ void UVWLoadoutWidget::ShowEquipmentListForSlot(const EEquipmentSlot& InEquipmen
 
 	EquipmentMenu->Parent = this;
 	EquipmentMenu->EquipmentMenuViewer = EquipmentMenuViewer;
+	
+	EquipmentMenu->AddToViewport();
+
+	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
+	if(!AssetManager)
+	{
+		return;
+	}
+
+	int32 EquipmentIndex = CurrentLoadout.Equipment[int(InEquipmentSlot)].EquipmentIndex;
+	FPrimaryAssetId EquipmentId = EquipmentDA->EquipmentSlotCatalog[int32(InEquipmentSlot)].AvailableEquipmentForSlot[EquipmentIndex].PrimaryAssetId;
+
+	UVWEquipment* LoadedEquipment = AssetManager->GetPrimaryAssetObject<UVWEquipment>(EquipmentId);
+	
+	EquipmentMenu->CurrentEquipment = LoadedEquipment;
+	EquipmentMenu->SetupAttachmentButtons();
 	
 }
 

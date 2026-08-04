@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeVoidwreck_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xDCBB04C0,
-				0xC72A10DD,
+				0x5915B954,
+				0xA84B64E6,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_Voidwreck.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_Voidwreck.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Voidwreck(Z_Construct_UPackage__Script_Voidwreck, TEXT("/Script/Voidwreck"), Z_Registration_Info_UPackage__Script_Voidwreck, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xDCBB04C0, 0xC72A10DD));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_Voidwreck(Z_Construct_UPackage__Script_Voidwreck, TEXT("/Script/Voidwreck"), Z_Registration_Info_UPackage__Script_Voidwreck, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x5915B954, 0xA84B64E6));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -345,6 +345,10 @@ template<> VOIDWRECK_API UScriptStruct* StaticStruct<FEquipmentAttachmentSlot>()
 #endif
 		static const UECodeGen_Private::FSoftObjectPropertyParams NewProp_Thumbnail;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DisplayName_MetaData[];
+#endif
+		static const UECodeGen_Private::FTextPropertyParams NewProp_DisplayName;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Mesh_MetaData[];
 #endif
 		static const UECodeGen_Private::FSoftObjectPropertyParams NewProp_Mesh;
@@ -420,6 +424,13 @@ template<> VOIDWRECK_API UScriptStruct* StaticStruct<FEquipmentAttachmentSlot>()
 #endif
 	const UECodeGen_Private::FSoftObjectPropertyParams Z_Construct_UClass_UVWEquipment_Statics::NewProp_Thumbnail = { "Thumbnail", nullptr, (EPropertyFlags)0x001400000009001d, UECodeGen_Private::EPropertyGenFlags::SoftObject, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWEquipment, Thumbnail), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipment_Statics::NewProp_Thumbnail_MetaData), Z_Construct_UClass_UVWEquipment_Statics::NewProp_Thumbnail_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWEquipment_Statics::NewProp_DisplayName_MetaData[] = {
+		{ "Category", "VWEquipment" },
+		{ "ModuleRelativePath", "Private/Player/Equipment/VWEquipment.h" },
+	};
+#endif
+	const UECodeGen_Private::FTextPropertyParams Z_Construct_UClass_UVWEquipment_Statics::NewProp_DisplayName = { "DisplayName", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWEquipment, DisplayName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipment_Statics::NewProp_DisplayName_MetaData), Z_Construct_UClass_UVWEquipment_Statics::NewProp_DisplayName_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWEquipment_Statics::NewProp_Mesh_MetaData[] = {
 		{ "AssetBundles", "HubAndMission" },
 		{ "Category", "VWEquipment" },
@@ -444,6 +455,7 @@ template<> VOIDWRECK_API UScriptStruct* StaticStruct<FEquipmentAttachmentSlot>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipment_Statics::NewProp_GrantedTags,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipment_Statics::NewProp_Description,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipment_Statics::NewProp_Thumbnail,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipment_Statics::NewProp_DisplayName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipment_Statics::NewProp_Mesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipment_Statics::NewProp_AttachmentSlots_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipment_Statics::NewProp_AttachmentSlots,
@@ -496,9 +508,9 @@ template<> VOIDWRECK_API UScriptStruct* StaticStruct<FEquipmentAttachmentSlot>()
 		{ FEquipmentAttachmentSlot::StaticStruct, Z_Construct_UScriptStruct_FEquipmentAttachmentSlot_Statics::NewStructOps, TEXT("EquipmentAttachmentSlot"), &Z_Registration_Info_UScriptStruct_EquipmentAttachmentSlot, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEquipmentAttachmentSlot), 2612340630U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UVWEquipment, UVWEquipment::StaticClass, TEXT("UVWEquipment"), &Z_Registration_Info_UClass_UVWEquipment, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWEquipment), 3559499175U) },
+		{ Z_Construct_UClass_UVWEquipment, UVWEquipment::StaticClass, TEXT("UVWEquipment"), &Z_Registration_Info_UClass_UVWEquipment, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWEquipment), 402757606U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_2273541190(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_1206599972(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Player_Equipment_VWEquipment_h_Statics::EnumInfo));

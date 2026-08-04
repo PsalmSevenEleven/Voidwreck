@@ -10,7 +10,7 @@
 #include "VWLoadoutWidget.generated.h"
 
 
-
+class UVWEquipmentMenu;
 class UVWSaveGame;
 class UVWLoadoutEquipmentButton;
 class UThrobber;
@@ -83,6 +83,9 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, meta = (ExposeOnSpawn))
 	AVWEquipmentMenuViewer* EquipmentMenuViewer;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TSubclassOf<UVWEquipmentMenu> EquipmentMenuClass;
 	
 	TArray<FPrimaryAssetId> AttachmentsForEquipmentViewer;
 	
@@ -109,7 +112,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	virtual void InitMenu();
 
-	void ShowEquipmentListForSlot(const EEquipmentSlot& InEquipmentSlot);
+	void ShowEquipmentMenuForSlot(const EEquipmentSlot& InEquipmentSlot);
 
 	UPROPERTY(BlueprintReadWrite)
 	UVWSaveGame* SaveGame;

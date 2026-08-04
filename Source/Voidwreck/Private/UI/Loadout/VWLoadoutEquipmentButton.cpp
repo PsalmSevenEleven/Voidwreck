@@ -19,5 +19,5 @@ void UVWLoadoutEquipmentButton::NativeConstruct()
 
 void UVWLoadoutEquipmentButton::SendLoadoutWidgetToEquipmentMenu()
 {
-	LoadoutWidget->ShowEquipmentListForSlot(EquipmentSlot);
+	LoadoutWidget->ShowEquipmentMenuForSlot(EquipmentSlot);
 }

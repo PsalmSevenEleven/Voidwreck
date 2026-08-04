@@ -42,7 +42,6 @@ void AVWEquipmentMenuViewer::SetupMeshes(UVWEquipment* Equipment)
 	}
 
 	
-
 	for(int i = 0; i < Equipment->AttachmentSlots.Num(); i++)
 	{
 		FName NewMeshName = FName(FString("AttachmentMesh_" + FString::FromInt(i)));
