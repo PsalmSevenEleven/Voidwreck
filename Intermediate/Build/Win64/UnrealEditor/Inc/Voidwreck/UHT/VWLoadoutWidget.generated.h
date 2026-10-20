@@ -9,7 +9,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-enum class EEquipmentSlot : int32;
 #ifdef VOIDWRECK_VWLoadoutWidget_generated_h
 #error "VWLoadoutWidget.generated.h already included, missing '#pragma once' in VWLoadoutWidget.h"
 #endif
@@ -20,9 +19,9 @@ enum class EEquipmentSlot : int32;
 #define FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_27_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetupEquipmentMenuViewer); \
 	DECLARE_FUNCTION(execInitMenu); \
-	DECLARE_FUNCTION(execLoadLoadout); \
-	DECLARE_FUNCTION(execSetupEquipmentMenuViewer);
+	DECLARE_FUNCTION(execLoadLoadout);
 
 
 #define FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_27_ACCESSORS

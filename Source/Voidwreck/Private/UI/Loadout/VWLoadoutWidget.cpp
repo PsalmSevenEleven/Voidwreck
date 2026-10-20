@@ -39,7 +39,7 @@ void UVWLoadoutWidget::NativeConstruct()
 		SaveGame = NewSaveGame;
 	}
 
-	CurrentLoadout = SaveGame->Loadouts[SaveGame->SelectedLoadout];
+	//CurrentLoadout = SaveGame->Loadouts[SaveGame->SelectedLoadout];
 
 	HeadSlotButton->LoadoutWidget = this;
 	EyesSlotButton->LoadoutWidget = this;
@@ -109,11 +109,11 @@ void UVWLoadoutWidget::LoadLoadout()
 	EquipmentToLoad.Reset();
 	AttachmentsToLoad.Reset();
 	
-	for(int i = 0; i<CurrentLoadout.Equipment.Num(); i++)
+	for(int i = 0; i<SaveGame->Loadouts[SaveGame->SelectedLoadout].Equipment.Num(); i++)
 	{
-		if(EquipmentDA->EquipmentSlotCatalog[i].AvailableEquipmentForSlot[CurrentLoadout.Equipment[i].EquipmentIndex].PrimaryAssetId.IsValid())
+		if(EquipmentDA->EquipmentSlotCatalog[i].AvailableEquipmentForSlot[SaveGame->Loadouts[SaveGame->SelectedLoadout].Equipment[i].EquipmentIndex].PrimaryAssetId.IsValid())
 		{
-			FVWPrimaryAssetID& NewEquipment = EquipmentDA->EquipmentSlotCatalog[i].AvailableEquipmentForSlot[CurrentLoadout.Equipment[i].EquipmentIndex];
+			FVWPrimaryAssetID& NewEquipment = EquipmentDA->EquipmentSlotCatalog[i].AvailableEquipmentForSlot[SaveGame->Loadouts[SaveGame->SelectedLoadout].Equipment[i].EquipmentIndex];
 		
 			EquipmentToLoad.Emplace(NewEquipment.PrimaryAssetId);
 		}
@@ -165,11 +165,11 @@ void UVWLoadoutWidget::LoadoutEquipmentLoadedCallback()
 		CharacterMenuViewer->SetupAttachmentMeshesForSlot(i, AttachmentSlotNames);
 		
 
-		for(int j = 0; j < LoadedEquipment->AttachmentSlots.Num(); j++)
+		for(int8 j = 0; j < LoadedEquipment->AttachmentSlots.Num(); j++)
 		{
 			//The first index of each AttachmentOptions row is the attachment to use,
 			//and the subsequent ones are for attachment-specific customization
-			int SelectedAttachmentForSlot = CurrentLoadout.Equipment[i].AttachmentOptions[j][0];
+			int8 SelectedAttachmentForSlot = SaveGame->Loadouts[SaveGame->SelectedLoadout].Equipment[i].AttachmentIndices[j];
 			AttachmentsToLoad.Emplace(LoadedEquipment->AttachmentSlots[j].AvailableAttachments[SelectedAttachmentForSlot]);
 		}
 	}
@@ -224,7 +224,8 @@ void UVWLoadoutWidget::ShowEquipmentMenuForSlot(const EEquipmentSlot& InEquipmen
 		GetOwningPlayer()->SetViewTarget(EquipmentMenuViewer);
 	}
 	
-	SetupEquipmentMenuViewer(InEquipmentSlot);
+	CurrentEquipmentSlot = int8(InEquipmentSlot);
+	SetupEquipmentMenuViewer(CurrentEquipmentSlot);
 	
 	SetVisibility(ESlateVisibility::Collapsed);
 	
@@ -235,9 +236,8 @@ void UVWLoadoutWidget::ShowEquipmentMenuForSlot(const EEquipmentSlot& InEquipmen
 	}
 
 	EquipmentMenu->Parent = this;
-	EquipmentMenu->EquipmentMenuViewer = EquipmentMenuViewer;
-	
 	EquipmentMenu->AddToViewport();
+	
 
 	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
 	if(!AssetManager)
@@ -245,51 +245,62 @@ void UVWLoadoutWidget::ShowEquipmentMenuForSlot(const EEquipmentSlot& InEquipmen
 		return;
 	}
 
-	int32 EquipmentIndex = CurrentLoadout.Equipment[int(InEquipmentSlot)].EquipmentIndex;
+	int32 EquipmentIndex = SaveGame->Loadouts[SaveGame->SelectedLoadout].Equipment[int(InEquipmentSlot)].EquipmentIndex;
 	FPrimaryAssetId EquipmentId = EquipmentDA->EquipmentSlotCatalog[int32(InEquipmentSlot)].AvailableEquipmentForSlot[EquipmentIndex].PrimaryAssetId;
 
 	UVWEquipment* LoadedEquipment = AssetManager->GetPrimaryAssetObject<UVWEquipment>(EquipmentId);
+
+	EquipmentMenu->EquipmentMenuViewer = EquipmentMenuViewer;
+	EquipmentMenu->LoadoutWidget = this;
 	
 	EquipmentMenu->CurrentEquipment = LoadedEquipment;
 	EquipmentMenu->SetupAttachmentButtons();
 	
 }
 
-void UVWLoadoutWidget::SetupEquipmentMenuViewer(EEquipmentSlot InEquipmentSlot)
+void UVWLoadoutWidget::SetupEquipmentMenuViewer(int InEquipmentSlot)
 {
+	
 	UAssetManager* AssetManager = UAssetManager::GetIfInitialized();
 	if(!AssetManager)
 	{
 		return;
 	}
+	
 
-	int32 EquipmentIndex = CurrentLoadout.Equipment[int(InEquipmentSlot)].EquipmentIndex;
-	FPrimaryAssetId EquipmentId = EquipmentDA->EquipmentSlotCatalog[int32(InEquipmentSlot)].AvailableEquipmentForSlot[EquipmentIndex].PrimaryAssetId;
+	if(!SaveGame)
+	{
+	
+		UVWSaveGame* NewSaveGame = Cast<UVWSaveGame>(UGameplayStatics::CreateSaveGameObject(UVWSaveGame::StaticClass()));
+		
+		UGameplayStatics::SaveGameToSlot(NewSaveGame, "SaveGame", 0);
+
+		SaveGame = NewSaveGame;
+	}
+	
+	int32 EquipmentIndex = SaveGame->Loadouts[SaveGame->SelectedLoadout].Equipment[int(InEquipmentSlot)].EquipmentIndex;
+	FPrimaryAssetId EquipmentId = EquipmentDA->EquipmentSlotCatalog[int(InEquipmentSlot)].AvailableEquipmentForSlot[EquipmentIndex].PrimaryAssetId;
 
 	UVWEquipment* LoadedEquipment = AssetManager->GetPrimaryAssetObject<UVWEquipment>(EquipmentId);
 
 	EquipmentMenuViewer->EquipmentMesh->SetSkeletalMeshAsset(LoadedEquipment->Mesh.LoadSynchronous());
 
 	EquipmentMenuViewer->SetupMeshes(LoadedEquipment);
-
-	//TODO - Unload unnecessary attachment assets
-
+	
+	AssetManager->UnloadPrimaryAssets(AttachmentsForEquipmentViewer);
 	AttachmentsForEquipmentViewer.Reset();
 	
-	for(int i = 0; i < LoadedEquipment->AttachmentSlots.Num(); i++)
+	for(int8 i = 0; i < LoadedEquipment->AttachmentSlots.Num(); i++)
 	{
 		//The first index of each AttachmentOptions row is the attachment to use,
 		//and the subsequent ones are for attachment-specific customization
-		int SelectedAttachmentForSlot = CurrentLoadout.Equipment[int32(InEquipmentSlot)].AttachmentOptions[i][0];
+		int8 SelectedAttachmentForSlot = SaveGame->Loadouts[SaveGame->SelectedLoadout].Equipment[int32(InEquipmentSlot)].AttachmentIndices[i];
 		AttachmentsForEquipmentViewer.Emplace(LoadedEquipment->AttachmentSlots[i].AvailableAttachments[SelectedAttachmentForSlot]);
 	}
-
-	
 	
 	AssetManager->LoadPrimaryAssets(AttachmentsForEquipmentViewer,
 		TArray<FName>({FName("HubOnly"), FName("HubAndMission")}),
 		FStreamableDelegate::CreateUObject(this, &UVWLoadoutWidget::EquipmentViewerAttachmentsLoadedCallback));
-	
 }
 
 void UVWLoadoutWidget::EquipmentViewerAttachmentsLoadedCallback()
@@ -304,7 +315,17 @@ void UVWLoadoutWidget::EquipmentViewerAttachmentsLoadedCallback()
 	for(int i = 0; i < EquipmentMenuViewer->AttachmentMeshes.Num(); i++)
 	{
 		UVWEquipmentAttachment* Attachment = AssetManager->GetPrimaryAssetObject<UVWEquipmentAttachment>(AttachmentsForEquipmentViewer[i]);
-		EquipmentMenuViewer->AttachmentMeshes[i]->SetSkeletalMeshAsset(Attachment->Mesh.LoadSynchronous());
+		
+		USkeletalMesh* MeshAsset = Attachment->Mesh.LoadSynchronous();
+		if(MeshAsset)
+		{
+			EquipmentMenuViewer->AttachmentMeshes[i]->SetSkeletalMeshAsset(MeshAsset);
+		}
+		else
+		{
+			EquipmentMenuViewer->AttachmentMeshes[i]->SetSkeletalMeshAsset(NULL);
+		}
+		
 	}
 }
 

@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "VWAttachmentStoreButton.generated.h"
 
+class UVWEquipmentMenu;
 /**
  * 
  */
@@ -16,10 +17,24 @@ class UVWAttachmentStoreButton : public UUserWidget
 
 public:
 
+	virtual void NativeConstruct() override;
+
 	UPROPERTY(meta = (BindWidget))
 	class UButton* Button;
 
 	UPROPERTY(meta = (BindWidget))
 	class UTextBlock* TextBlock;
+
+	UPROPERTY()
+	UVWEquipmentMenu* EquipmentMenu;
+
+	UPROPERTY()
+	int32 AttachmentIndex;
+
+	UPROPERTY()
+	int32 AttachmentSlot;
+	
+	UFUNCTION()
+	void SelectAttachment();
 	
 };

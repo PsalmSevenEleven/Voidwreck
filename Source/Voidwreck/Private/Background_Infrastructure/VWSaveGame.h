@@ -18,21 +18,31 @@ public:
 	FEquipmentOptions();
 	
 	UPROPERTY(BlueprintReadWrite)
-	int32 EquipmentIndex;
+	uint8 EquipmentIndex;
 
-	//This is a little opaque, so I'll explain.
-	//The 2d array below provides both the index of each attachment on a particular piece of equipment and any other options that the attachment allows.
-	//For example, let's say the FEquipmentOptions struct that this is a part of is the eighth member (index 7) of the Equipment array in a Floadout.
-	//That means that this is equipped in the 'Primary' slot and will be dealing with primary weapons.
-	//The EquipmentIndex variable will tell the savegame which gun the player has selected, and each row in AttachmentOptions will represent an attachment slot.
-	//The first index can be used to tell which attachment goes in the slot, because each equipment slot will have a list of available attachments for that slot.
-	//If the slot is an underbarrel slot it'll be a foregrip, laser, grenade launcher, etc.
-	//In the case of something like a holographic optic, index 1 in the row can choose the reticle shape from an array, and indices 2-4 can be used for the reticle's RGB tint.
-	//Each attachment can have its own format for the int array, meaning that I don't have to make different save variables for everything.
-	TArray<TArray<int32>> AttachmentOptions;
+	//This stores the indices of the attachments to use in each slot on the equipment
+	TArray<uint8> AttachmentIndices;
+
+	//This 3d array of int8's is a little opaque, so I'll explain.
+	//Each element in the top-level array represents a different attachment slot, and each element of the array below it is a different attachment.
+	//The lowest-level array holds the individual values for any options the attachment.
 	
-	int32 GetAttachmentOption(int Slot, int OptionIndex);
+	//For example, let's say the FEquipmentOptions struct that this is a part of is the ninth member (index 8) of the Equipment array in an Floadout.
+	//That means that this is equipped in the 'Primary' slot and will be dealing with primary weapons.
+	//The EquipmentIndex variable will tell the savegame which gun the player has selected, and each index in AttachmentIndices will represent an attachment slot.
+	//The values at those indices will determine which attachment is being used on the equipment, and thus which set of options to pull from SavedAttachmentOptions.
+	
+	//In the case of something like a holographic optic, index 0 in the lowest-level array in SavedAttachmentOptions can choose the reticle shape from an array,
+	//and indices 1-3 can be used for the reticle's RGB tint.
+	//Each attachment can have its own format for the int array, meaning that I don't have to make different save variables for everything.
+	
+	//We use this system to make sure that any customization the player has done in the attachment depot (colors, sightings, etc) doesn't need to be redone
+	//every time a player reselects an attachment.
+	TArray<TArray<TArray<uint8>>> SavedAttachmentOptions;
+	
+	uint8 GetAttachmentOption(uint8 Slot, uint8 AttachmentIndex, uint8 OptionIndex);
 };
+
 
 USTRUCT(BlueprintType)
 struct FLoadout
@@ -45,11 +55,14 @@ public:
 	
 	UPROPERTY(BlueprintReadWrite)
 	FString DisplayName;
-	
+
+	//Each index represents an equipment slot, corresponding to the elements of EEquipmentSlot
 	UPROPERTY(BlueprintReadWrite)
 	TArray<FEquipmentOptions> Equipment;
 	
 };
+
+
 /**
  * 
  */
@@ -72,5 +85,6 @@ public:
 	
 	UPROPERTY(BlueprintReadWrite, SaveGame)
 	TArray<FLoadout> Loadouts = TArray<FLoadout>();
+	
 	
 };

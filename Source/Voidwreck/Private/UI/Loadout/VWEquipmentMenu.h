@@ -6,6 +6,8 @@
 #include "UI/VWUserWidget.h"
 #include "VWEquipmentMenu.generated.h"
 
+class UVWLoadoutWidget;
+class UVWSaveGame;
 class UVWAttachmentStoreButton;
 class UVWEquipment;
 class UVWAttachmentButton;
@@ -19,12 +21,20 @@ class UVWEquipmentMenu : public UVWUserWidget
 	GENERATED_BODY()
 
 public:
+	
+	UPROPERTY()
+	UVWLoadoutWidget* LoadoutWidget;
+
+	UPROPERTY()
+	int32 CurrentLoadoutIndex;
+
+	UPROPERTY()
+	UVWEquipment* CurrentEquipment;
 
 	UPROPERTY()
 	class AVWEquipmentMenuViewer* EquipmentMenuViewer;
 
-	UPROPERTY()
-	UVWEquipment* CurrentEquipment;
+	
 
 	UPROPERTY(meta = (BindWidget))
 	UScrollBox* AttachmentScrollBox;
@@ -39,14 +49,17 @@ public:
 	TSubclassOf<UVWAttachmentButton> AttachmentButtonClass;
 
 	UFUNCTION()
-	void OpenAttachmentStore(int32 AttachmentIndex);
+	void OpenAttachmentStore(int32 AttachmentSlotIndex);
 
 	TArray<FPrimaryAssetId> StoreAttachmentsToLoad;
 	
 	UFUNCTION()
-	void AttachmentStoreLoadedCallback();
+	void AttachmentStoreLoadedCallback(int32 SlotIndex);
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TSubclassOf<UVWAttachmentStoreButton> AttachmentStoreButtonClass;
+
+	UFUNCTION()
+	void SelectAttachment(int32 AttachmentSlot, int32 AttachmentIndex);
 	
 };

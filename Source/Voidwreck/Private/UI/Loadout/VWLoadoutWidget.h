@@ -67,9 +67,9 @@ protected:
 	
 #pragma endregion
 
-	//Which of the saved loadouts we're currently editing
-	UPROPERTY(BlueprintReadWrite)
-	FLoadout CurrentLoadout;
+	// //Which of the saved loadouts we're currently editing
+	// UPROPERTY(BlueprintReadWrite)
+	// FLoadout* CurrentLoadout;
 
 	TArray<FPrimaryAssetId> EquipmentToLoad;
 	TArray<FPrimaryAssetId> AttachmentsToLoad;
@@ -89,9 +89,7 @@ protected:
 	
 	TArray<FPrimaryAssetId> AttachmentsForEquipmentViewer;
 	
-	UFUNCTION()
-	void SetupEquipmentMenuViewer(EEquipmentSlot InEquipmentSlot);
-
+	
 	void EquipmentViewerAttachmentsLoadedCallback();
 
 	
@@ -108,12 +106,20 @@ protected:
 	virtual void LoadoutAttachmentsLoadedCallback();
 
 public:
-
+	
 	UFUNCTION(BlueprintCallable)
 	virtual void InitMenu();
 
 	void ShowEquipmentMenuForSlot(const EEquipmentSlot& InEquipmentSlot);
 
+	UFUNCTION()
+	void SetupEquipmentMenuViewer(int InEquipmentSlot);
+
+
 	UPROPERTY(BlueprintReadWrite)
 	UVWSaveGame* SaveGame;
+
+	UPROPERTY()
+	int8 CurrentEquipmentSlot = 0;
+	
 };
