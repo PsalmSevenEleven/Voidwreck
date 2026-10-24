@@ -17,10 +17,11 @@ public:
 
 	FEquipmentOptions();
 	
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, SaveGame)
 	uint8 EquipmentIndex;
 
 	//This stores the indices of the attachments to use in each slot on the equipment
+	UPROPERTY(SaveGame)
 	TArray<uint8> AttachmentIndices;
 
 	//This 3d array of int8's is a little opaque, so I'll explain.
@@ -57,7 +58,7 @@ public:
 	FString DisplayName;
 
 	//Each index represents an equipment slot, corresponding to the elements of EEquipmentSlot
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, SaveGame)
 	TArray<FEquipmentOptions> Equipment;
 	
 };

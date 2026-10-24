@@ -26,6 +26,8 @@ AVWEquipmentMenuViewer::AVWEquipmentMenuViewer()
 
 }
 
+//Creates meshes attached to the equipment mesh, at the appropriate sockets.
+//DOES NOT assign the appropriate mesh assets to them.
 void AVWEquipmentMenuViewer::SetupMeshes(UVWEquipment* Equipment)
 {
 

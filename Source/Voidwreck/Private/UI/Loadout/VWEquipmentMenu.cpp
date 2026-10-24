@@ -107,6 +107,10 @@ void UVWEquipmentMenu::SelectAttachment(int32 AttachmentSlot, int32 AttachmentIn
 	if(LoadoutWidget->SaveGame)
 	{
 		LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot].AttachmentIndices[AttachmentSlot] = AttachmentIndex;
+		UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
+		
+		
+
 	}
 
 	LoadoutWidget->SetupEquipmentMenuViewer(LoadoutWidget->CurrentEquipmentSlot);

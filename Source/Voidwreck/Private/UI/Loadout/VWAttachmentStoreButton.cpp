@@ -15,6 +15,5 @@ void UVWAttachmentStoreButton::NativeConstruct()
 
 void UVWAttachmentStoreButton::SelectAttachment()
 {
-	
 	EquipmentMenu->SelectAttachment(AttachmentSlot, AttachmentIndex);
 }
