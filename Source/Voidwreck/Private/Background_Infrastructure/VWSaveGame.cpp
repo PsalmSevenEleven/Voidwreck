@@ -14,22 +14,37 @@ FEquipmentOptions::FEquipmentOptions()
 	for(int i = 0; i<10; i++)
 	{
 		AttachmentIndices.Emplace(0);
+	}
+	
+	//TODO - we're making a lot of assumptions here about the numbers of equipment, attachments, and options that will be in the game,
+	//and this should probably be updated dynamically as more content is added.
+	//Add checks to anything that has to draw from the savegame and add default arrays if needed
+	
+	for(int Equipment = 0; Equipment<30; Equipment++)
+	{
+		SavedAttachmentOptions.Emplace(TArray<TArray<TArray<uint8>>>());
 		
-		//We're making a similar assumption here.
-		//we're assuming that there are no more than 8 options for different attachments per slot.
-		//This number should probably be as small as possible to reduce save game sizes,
-		//but the difference will be measured in kilobytes so it's less important than making sure we have enough
-		for (int j = 0; j<8; j++)
+		for (int Slot = 0; Slot<10; Slot++)
 		{
-			//We're assuming here that no attachment will have more than 6 fields that can be customized.
-			SavedAttachmentOptions.Emplace(TArray<TArray<int8>>({TArray<int8>({0,0,0,0,0,0})}));
+			SavedAttachmentOptions[Equipment].Emplace(TArray<TArray<uint8>>());
+			
+			for(int Attachment = 0; Attachment<8; Attachment++)
+			{
+				SavedAttachmentOptions[Equipment][Slot].Emplace(TArray<uint8>({0,0,0,0,0,0,0}));
+			}
 		}
 	}
 }
 
-uint8 FEquipmentOptions::GetAttachmentOption(uint8 Slot, uint8 AttachmentIndex, uint8 OptionIndex)
+
+TArray<uint8> FEquipmentOptions::GetAttachmentOptionsForSlot(uint8 InAttachmentSlot)
 {
-	return SavedAttachmentOptions[Slot][AttachmentIndex][OptionIndex];
+	return SavedAttachmentOptions[EquipmentIndex][InAttachmentSlot][AttachmentIndices[InAttachmentSlot]];
+}
+
+TArray<uint8> FEquipmentOptions::GetAttachmentOptions(uint8 InEquipmentIndex, uint8 InAttachmentSlot)
+{
+	return SavedAttachmentOptions[InEquipmentIndex][InAttachmentSlot][AttachmentIndices[InAttachmentSlot]];
 }
 
 FLoadout::FLoadout()

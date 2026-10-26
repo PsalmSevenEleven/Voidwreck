@@ -14,8 +14,10 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 	UPackage* Z_Construct_UPackage__Script_Voidwreck();
 	VOIDWRECK_API UClass* Z_Construct_UClass_AVWEquipmentMenuViewer_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWAttachmentButton_NoRegister();
+	VOIDWRECK_API UClass* Z_Construct_UClass_UVWAttachmentOptionsWidget_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWAttachmentStoreButton_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWEquipment_NoRegister();
+	VOIDWRECK_API UClass* Z_Construct_UClass_UVWEquipmentAttachment_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWEquipmentMenu();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWEquipmentMenu_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWLoadoutWidget_NoRegister();
@@ -25,9 +27,10 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_AttachmentSlot);
 		P_GET_PROPERTY(FIntProperty,Z_Param_AttachmentIndex);
+		P_GET_OBJECT(UVWEquipmentAttachment,Z_Param_Attachment);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SelectAttachment(Z_Param_AttachmentSlot,Z_Param_AttachmentIndex);
+		P_THIS->SelectAttachment(Z_Param_AttachmentSlot,Z_Param_AttachmentIndex,Z_Param_Attachment);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UVWEquipmentMenu::execAttachmentStoreLoadedCallback)
@@ -138,9 +141,11 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 		{
 			int32 AttachmentSlot;
 			int32 AttachmentIndex;
+			UVWEquipmentAttachment* Attachment;
 		};
 		static const UECodeGen_Private::FIntPropertyParams NewProp_AttachmentSlot;
 		static const UECodeGen_Private::FIntPropertyParams NewProp_AttachmentIndex;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Attachment;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -149,9 +154,11 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 	};
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment_Statics::NewProp_AttachmentSlot = { "AttachmentSlot", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWEquipmentMenu_eventSelectAttachment_Parms, AttachmentSlot), METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment_Statics::NewProp_AttachmentIndex = { "AttachmentIndex", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWEquipmentMenu_eventSelectAttachment_Parms, AttachmentIndex), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment_Statics::NewProp_Attachment = { "Attachment", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWEquipmentMenu_eventSelectAttachment_Parms, Attachment), Z_Construct_UClass_UVWEquipmentAttachment_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment_Statics::NewProp_AttachmentSlot,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment_Statics::NewProp_AttachmentIndex,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment_Statics::NewProp_Attachment,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment_Statics::Function_MetaDataParams[] = {
@@ -229,6 +236,10 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_AttachmentStoreScrollBox;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttachmentOptionsScrollBox_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_AttachmentOptionsScrollBox;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttachmentButtonClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_AttachmentButtonClass;
@@ -236,6 +247,10 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttachmentStoreButtonClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_AttachmentStoreButtonClass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttachmentOptionWidgetClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_AttachmentOptionWidgetClass;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -248,7 +263,7 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UVWEquipmentMenu_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UVWEquipmentMenu_AttachmentStoreLoadedCallback, "AttachmentStoreLoadedCallback" }, // 3327344195
 		{ &Z_Construct_UFunction_UVWEquipmentMenu_OpenAttachmentStore, "OpenAttachmentStore" }, // 1298323598
-		{ &Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment, "SelectAttachment" }, // 1379462491
+		{ &Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment, "SelectAttachment" }, // 723858282
 		{ &Z_Construct_UFunction_UVWEquipmentMenu_SetupAttachmentButtons, "SetupAttachmentButtons" }, // 1740667114
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipmentMenu_Statics::FuncInfo) < 2048);
@@ -303,6 +318,14 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentStoreScrollBox = { "AttachmentStoreScrollBox", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWEquipmentMenu, AttachmentStoreScrollBox), Z_Construct_UClass_UScrollBox_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentStoreScrollBox_MetaData), Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentStoreScrollBox_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionsScrollBox_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Private/UI/Loadout/VWEquipmentMenu.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionsScrollBox = { "AttachmentOptionsScrollBox", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWEquipmentMenu, AttachmentOptionsScrollBox), Z_Construct_UClass_UScrollBox_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionsScrollBox_MetaData), Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionsScrollBox_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentButtonClass_MetaData[] = {
 		{ "Category", "VWEquipmentMenu" },
 		{ "ModuleRelativePath", "Private/UI/Loadout/VWEquipmentMenu.h" },
@@ -316,6 +339,13 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 	};
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentStoreButtonClass = { "AttachmentStoreButtonClass", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWEquipmentMenu, AttachmentStoreButtonClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UVWAttachmentStoreButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentStoreButtonClass_MetaData), Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentStoreButtonClass_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionWidgetClass_MetaData[] = {
+		{ "Category", "VWEquipmentMenu" },
+		{ "ModuleRelativePath", "Private/UI/Loadout/VWEquipmentMenu.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionWidgetClass = { "AttachmentOptionWidgetClass", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWEquipmentMenu, AttachmentOptionWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UVWAttachmentOptionsWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionWidgetClass_MetaData), Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionWidgetClass_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UVWEquipmentMenu_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_LoadoutWidget,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_CurrentLoadoutIndex,
@@ -323,8 +353,10 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_EquipmentMenuViewer,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentScrollBox,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentStoreScrollBox,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionsScrollBox,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentButtonClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentStoreButtonClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionWidgetClass,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UVWEquipmentMenu_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UVWEquipmentMenu>::IsAbstract,
@@ -365,9 +397,9 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UVWEquipmentMenu, UVWEquipmentMenu::StaticClass, TEXT("UVWEquipmentMenu"), &Z_Registration_Info_UClass_UVWEquipmentMenu, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWEquipmentMenu), 1153742143U) },
+		{ Z_Construct_UClass_UVWEquipmentMenu, UVWEquipmentMenu::StaticClass, TEXT("UVWEquipmentMenu"), &Z_Registration_Info_UClass_UVWEquipmentMenu, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWEquipmentMenu), 3255608783U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_2090236378(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_4076827489(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

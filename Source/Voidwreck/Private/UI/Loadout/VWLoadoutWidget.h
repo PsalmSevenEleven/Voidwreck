@@ -120,6 +120,6 @@ public:
 	UVWSaveGame* SaveGame;
 
 	UPROPERTY()
-	int8 CurrentEquipmentSlot = 0;
+	uint8 CurrentEquipmentSlot = 0;
 	
 };

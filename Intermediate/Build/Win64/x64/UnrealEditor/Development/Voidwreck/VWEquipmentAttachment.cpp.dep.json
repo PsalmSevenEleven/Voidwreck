@@ -7,7 +7,11 @@
         "Includes": [
             "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\voidwreck\\definitions.voidwreck.h",
             "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\source\\voidwreck\\private\\player\\equipment\\vwequipmentattachment.h",
-            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwequipmentattachment.generated.h"
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwequipmentattachment.generated.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\source\\voidwreck\\private\\background_infrastructure\\vwsavegame.h",
+            "c:\\unrealenginesource\\engine\\source\\runtime\\engine\\classes\\gameframework\\savegame.h",
+            "c:\\unrealenginesource\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\savegame.generated.h",
+            "c:\\users\\caleb\\documents\\unreal projects\\voidwreck\\voidwreck\\intermediate\\build\\win64\\unrealeditor\\inc\\voidwreck\\uht\\vwsavegame.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

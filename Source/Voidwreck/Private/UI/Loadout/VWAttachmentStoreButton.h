@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "VWAttachmentStoreButton.generated.h"
 
+class UVWEquipmentAttachment;
 class UVWEquipmentMenu;
 /**
  * 
@@ -33,6 +34,9 @@ public:
 
 	UPROPERTY()
 	int32 AttachmentSlot;
+
+	UPROPERTY()
+	UVWEquipmentAttachment* AttachmentDA;
 	
 	UFUNCTION()
 	void SelectAttachment();

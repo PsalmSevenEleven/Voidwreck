@@ -331,6 +331,10 @@ void UVWLoadoutWidget::EquipmentViewerAttachmentsLoadedCallback()
 		if(MeshAsset)
 		{
 			EquipmentMenuViewer->AttachmentMeshes[i]->SetSkeletalMeshAsset(MeshAsset);
+			Attachment->InitializeOptions(
+				EquipmentMenuViewer->AttachmentMeshes[i],
+				SaveGame->Loadouts[SaveGame->SelectedLoadout].Equipment[CurrentEquipmentSlot].GetAttachmentOptionsForSlot(i)
+				);
 		}
 		
 	}

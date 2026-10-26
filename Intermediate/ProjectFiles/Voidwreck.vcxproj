@@ -656,6 +656,12 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\Voidwreck\Private\Player\Character\FirstPersonCharacter.h"/>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Player\Equipment\VWEA_Ironsight.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Player\Equipment\VWEA_Ironsight.h"/>
     <ClCompile Include="..\..\Source\Voidwreck\Private\Player\Equipment\VWEquipment.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
@@ -704,6 +710,12 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentButton.h"/>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentOptionsWidget.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentOptionsWidget.h"/>
     <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentStoreButton.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_3)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_3)</ForcedIncludeFiles>

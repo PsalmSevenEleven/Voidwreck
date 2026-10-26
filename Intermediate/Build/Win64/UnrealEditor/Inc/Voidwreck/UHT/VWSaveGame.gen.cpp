@@ -60,7 +60,13 @@ template<> VOIDWRECK_API UScriptStruct* StaticStruct<FEquipmentOptions>()
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEquipmentOptions_Statics::NewProp_EquipmentIndex_MetaData[] = {
 		{ "Category", "EquipmentOptions" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//This stores the index of the equipment that currently occupies this slot\n" },
+#endif
 		{ "ModuleRelativePath", "Private/Background_Infrastructure/VWSaveGame.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "This stores the index of the equipment that currently occupies this slot" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FEquipmentOptions_Statics::NewProp_EquipmentIndex = { "EquipmentIndex", nullptr, (EPropertyFlags)0x0010000001000004, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FEquipmentOptions, EquipmentIndex), nullptr, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEquipmentOptions_Statics::NewProp_EquipmentIndex_MetaData), Z_Construct_UScriptStruct_FEquipmentOptions_Statics::NewProp_EquipmentIndex_MetaData) };
@@ -148,11 +154,17 @@ template<> VOIDWRECK_API UScriptStruct* StaticStruct<FLoadout>()
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_DisplayName_MetaData[] = {
 		{ "Category", "Loadout" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//This is better for the player than 'Loadout 1', 'Loadout 2', etc.\n" },
+#endif
 		{ "ModuleRelativePath", "Private/Background_Infrastructure/VWSaveGame.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "This is better for the player than 'Loadout 1', 'Loadout 2', etc." },
+#endif
 	};
 #endif
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_DisplayName = { "DisplayName", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FLoadout, DisplayName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_DisplayName_MetaData), Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_DisplayName_MetaData) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_Equipment_Inner = { "Equipment", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FEquipmentOptions, METADATA_PARAMS(0, nullptr) }; // 491670403
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_DisplayName = { "DisplayName", nullptr, (EPropertyFlags)0x0010000001000004, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FLoadout, DisplayName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_DisplayName_MetaData), Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_DisplayName_MetaData) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_Equipment_Inner = { "Equipment", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FEquipmentOptions, METADATA_PARAMS(0, nullptr) }; // 2792945229
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_Equipment_MetaData[] = {
 		{ "Category", "Loadout" },
@@ -165,7 +177,7 @@ template<> VOIDWRECK_API UScriptStruct* StaticStruct<FLoadout>()
 #endif
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_Equipment = { "Equipment", nullptr, (EPropertyFlags)0x0010000001000004, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FLoadout, Equipment), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_Equipment_MetaData), Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_Equipment_MetaData) }; // 491670403
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_Equipment = { "Equipment", nullptr, (EPropertyFlags)0x0010000001000004, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FLoadout, Equipment), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_Equipment_MetaData), Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_Equipment_MetaData) }; // 2792945229
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FLoadout_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_DisplayName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FLoadout_Statics::NewProp_Equipment_Inner,
@@ -263,14 +275,14 @@ template<> VOIDWRECK_API UScriptStruct* StaticStruct<FLoadout>()
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UVWSaveGame_Statics::NewProp_SelectedLoadout = { "SelectedLoadout", nullptr, (EPropertyFlags)0x0010000001000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWSaveGame, SelectedLoadout), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWSaveGame_Statics::NewProp_SelectedLoadout_MetaData), Z_Construct_UClass_UVWSaveGame_Statics::NewProp_SelectedLoadout_MetaData) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UVWSaveGame_Statics::NewProp_Loadouts_Inner = { "Loadouts", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FLoadout, METADATA_PARAMS(0, nullptr) }; // 2879325395
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UVWSaveGame_Statics::NewProp_Loadouts_Inner = { "Loadouts", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FLoadout, METADATA_PARAMS(0, nullptr) }; // 1508893658
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWSaveGame_Statics::NewProp_Loadouts_MetaData[] = {
 		{ "Category", "VWSaveGame" },
 		{ "ModuleRelativePath", "Private/Background_Infrastructure/VWSaveGame.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UVWSaveGame_Statics::NewProp_Loadouts = { "Loadouts", nullptr, (EPropertyFlags)0x0010000001000004, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWSaveGame, Loadouts), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWSaveGame_Statics::NewProp_Loadouts_MetaData), Z_Construct_UClass_UVWSaveGame_Statics::NewProp_Loadouts_MetaData) }; // 2879325395
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UVWSaveGame_Statics::NewProp_Loadouts = { "Loadouts", nullptr, (EPropertyFlags)0x0010000001000004, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWSaveGame, Loadouts), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWSaveGame_Statics::NewProp_Loadouts_MetaData), Z_Construct_UClass_UVWSaveGame_Statics::NewProp_Loadouts_MetaData) }; // 1508893658
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UVWSaveGame_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWSaveGame_Statics::NewProp_AccountLevel,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWSaveGame_Statics::NewProp_XP,
@@ -317,13 +329,13 @@ template<> VOIDWRECK_API UScriptStruct* StaticStruct<FLoadout>()
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Background_Infrastructure_VWSaveGame_h_Statics::ScriptStructInfo[] = {
-		{ FEquipmentOptions::StaticStruct, Z_Construct_UScriptStruct_FEquipmentOptions_Statics::NewStructOps, TEXT("EquipmentOptions"), &Z_Registration_Info_UScriptStruct_EquipmentOptions, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEquipmentOptions), 491670403U) },
-		{ FLoadout::StaticStruct, Z_Construct_UScriptStruct_FLoadout_Statics::NewStructOps, TEXT("Loadout"), &Z_Registration_Info_UScriptStruct_Loadout, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FLoadout), 2879325395U) },
+		{ FEquipmentOptions::StaticStruct, Z_Construct_UScriptStruct_FEquipmentOptions_Statics::NewStructOps, TEXT("EquipmentOptions"), &Z_Registration_Info_UScriptStruct_EquipmentOptions, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEquipmentOptions), 2792945229U) },
+		{ FLoadout::StaticStruct, Z_Construct_UScriptStruct_FLoadout_Statics::NewStructOps, TEXT("Loadout"), &Z_Registration_Info_UScriptStruct_Loadout, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FLoadout), 1508893658U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Background_Infrastructure_VWSaveGame_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UVWSaveGame, UVWSaveGame::StaticClass, TEXT("UVWSaveGame"), &Z_Registration_Info_UClass_UVWSaveGame, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWSaveGame), 3443404439U) },
+		{ Z_Construct_UClass_UVWSaveGame, UVWSaveGame::StaticClass, TEXT("UVWSaveGame"), &Z_Registration_Info_UClass_UVWSaveGame, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWSaveGame), 2294957971U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Background_Infrastructure_VWSaveGame_h_1412347138(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Background_Infrastructure_VWSaveGame_h_104371358(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Background_Infrastructure_VWSaveGame_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Background_Infrastructure_VWSaveGame_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Background_Infrastructure_VWSaveGame_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_Background_Infrastructure_VWSaveGame_h_Statics::ScriptStructInfo),
 		nullptr, 0);

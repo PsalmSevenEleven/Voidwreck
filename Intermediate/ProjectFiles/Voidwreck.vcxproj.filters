@@ -440,6 +440,12 @@
     <Filter Include="Source\Voidwreck\Private\Player\Equipment">
       <UniqueIdentifier>{3CA89474-A0A9-35A4-9AF2-A56634E24A75}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\Player\Equipment\VWEA_Ironsight.cpp">
+      <Filter>Source\Voidwreck\Private\Player\Equipment</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\Player\Equipment\VWEA_Ironsight.h">
+      <Filter>Source\Voidwreck\Private\Player\Equipment</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\Voidwreck\Private\Player\Equipment\VWEquipment.cpp">
       <Filter>Source\Voidwreck\Private\Player\Equipment</Filter>
     </ClCompile>
@@ -495,6 +501,12 @@
       <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentButton.h">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentOptionsWidget.cpp">
+      <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentOptionsWidget.h">
       <Filter>Source\Voidwreck\Private\UI\Loadout</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Voidwreck\Private\UI\Loadout\VWAttachmentStoreButton.cpp">

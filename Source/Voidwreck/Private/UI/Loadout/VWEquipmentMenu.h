@@ -3,9 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "VWAttachmentOptionsWidget.h"
 #include "UI/VWUserWidget.h"
 #include "VWEquipmentMenu.generated.h"
 
+class UVWEquipmentAttachment;
 class UVWLoadoutWidget;
 class UVWSaveGame;
 class UVWAttachmentStoreButton;
@@ -42,6 +44,9 @@ public:
 	UPROPERTY(meta = (BindWidget))
 	UScrollBox* AttachmentStoreScrollBox;
 
+	UPROPERTY(meta = (BindWidget))
+	UScrollBox* AttachmentOptionsScrollBox;
+
 	UFUNCTION()
 	void SetupAttachmentButtons();
 
@@ -59,7 +64,10 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TSubclassOf<UVWAttachmentStoreButton> AttachmentStoreButtonClass;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TSubclassOf<UVWAttachmentOptionsWidget> AttachmentOptionWidgetClass;
+
 	UFUNCTION()
-	void SelectAttachment(int32 AttachmentSlot, int32 AttachmentIndex);
+	void SelectAttachment(int32 AttachmentSlot, int32 AttachmentIndex, UVWEquipmentAttachment* Attachment);
 	
 };

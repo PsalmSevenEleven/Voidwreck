@@ -211,7 +211,7 @@ void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentEquipmentSlot_MetaData[];
 #endif
-		static const UECodeGen_Private::FInt8PropertyParams NewProp_CurrentEquipmentSlot;
+		static const UECodeGen_Private::FBytePropertyParams NewProp_CurrentEquipmentSlot;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -377,7 +377,7 @@ void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 		{ "ModuleRelativePath", "Private/UI/Loadout/VWLoadoutWidget.h" },
 	};
 #endif
-	const UECodeGen_Private::FInt8PropertyParams Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_CurrentEquipmentSlot = { "CurrentEquipmentSlot", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Int8, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWLoadoutWidget, CurrentEquipmentSlot), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_CurrentEquipmentSlot_MetaData), Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_CurrentEquipmentSlot_MetaData) };
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_CurrentEquipmentSlot = { "CurrentEquipmentSlot", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWLoadoutWidget, CurrentEquipmentSlot), nullptr, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_CurrentEquipmentSlot_MetaData), Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_CurrentEquipmentSlot_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UVWLoadoutWidget_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_HeadSlotButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWLoadoutWidget_Statics::NewProp_EyesSlotButton,
@@ -436,9 +436,9 @@ void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UVWLoadoutWidget, UVWLoadoutWidget::StaticClass, TEXT("UVWLoadoutWidget"), &Z_Registration_Info_UClass_UVWLoadoutWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWLoadoutWidget), 4190543058U) },
+		{ Z_Construct_UClass_UVWLoadoutWidget, UVWLoadoutWidget::StaticClass, TEXT("UVWLoadoutWidget"), &Z_Registration_Info_UClass_UVWLoadoutWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWLoadoutWidget), 1720235839U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_2404211645(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_1945229548(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
