@@ -10,6 +10,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	UMG_API UClass* Z_Construct_UClass_UScrollBox_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_Voidwreck();
 	VOIDWRECK_API UClass* Z_Construct_UClass_AVWEquipmentMenuViewer_NoRegister();
@@ -23,6 +25,42 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWLoadoutWidget_NoRegister();
 	VOIDWRECK_API UClass* Z_Construct_UClass_UVWUserWidget();
 // End Cross Module References
+	DEFINE_FUNCTION(UVWEquipmentMenu::execAssetListSelectonChanged)
+	{
+		P_GET_PROPERTY(FByteProperty,Z_Param_Selection);
+		P_GET_PROPERTY(FByteProperty,Z_Param_StartIndex);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AssetListSelectonChanged(Z_Param_Selection,Z_Param_StartIndex);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UVWEquipmentMenu::execVector3ValueChanged)
+	{
+		P_GET_STRUCT(FVector,Z_Param_Value);
+		P_GET_PROPERTY(FByteProperty,Z_Param_StartIndex);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Vector3ValueChanged(Z_Param_Value,Z_Param_StartIndex);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UVWEquipmentMenu::execVector2ValueChanged)
+	{
+		P_GET_STRUCT(FVector2D,Z_Param_Value);
+		P_GET_PROPERTY(FByteProperty,Z_Param_StartIndex);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Vector2ValueChanged(Z_Param_Value,Z_Param_StartIndex);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UVWEquipmentMenu::execScalarValueChanged)
+	{
+		P_GET_PROPERTY(FByteProperty,Z_Param_Value);
+		P_GET_PROPERTY(FByteProperty,Z_Param_StartIndex);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ScalarValueChanged(Z_Param_Value,Z_Param_StartIndex);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UVWEquipmentMenu::execSelectAttachment)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_AttachmentSlot);
@@ -60,12 +98,54 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 	{
 		UClass* Class = UVWEquipmentMenu::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "AssetListSelectonChanged", &UVWEquipmentMenu::execAssetListSelectonChanged },
 			{ "AttachmentStoreLoadedCallback", &UVWEquipmentMenu::execAttachmentStoreLoadedCallback },
 			{ "OpenAttachmentStore", &UVWEquipmentMenu::execOpenAttachmentStore },
+			{ "ScalarValueChanged", &UVWEquipmentMenu::execScalarValueChanged },
 			{ "SelectAttachment", &UVWEquipmentMenu::execSelectAttachment },
 			{ "SetupAttachmentButtons", &UVWEquipmentMenu::execSetupAttachmentButtons },
+			{ "Vector2ValueChanged", &UVWEquipmentMenu::execVector2ValueChanged },
+			{ "Vector3ValueChanged", &UVWEquipmentMenu::execVector3ValueChanged },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics
+	{
+		struct VWEquipmentMenu_eventAssetListSelectonChanged_Parms
+		{
+			uint8 Selection;
+			uint8 StartIndex;
+		};
+		static const UECodeGen_Private::FBytePropertyParams NewProp_Selection;
+		static const UECodeGen_Private::FBytePropertyParams NewProp_StartIndex;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::NewProp_Selection = { "Selection", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWEquipmentMenu_eventAssetListSelectonChanged_Parms, Selection), nullptr, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::NewProp_StartIndex = { "StartIndex", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWEquipmentMenu_eventAssetListSelectonChanged_Parms, StartIndex), nullptr, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::NewProp_Selection,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::NewProp_StartIndex,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Private/UI/Loadout/VWEquipmentMenu.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UVWEquipmentMenu, nullptr, "AssetListSelectonChanged", nullptr, nullptr, Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::PropPointers), sizeof(Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::VWEquipmentMenu_eventAssetListSelectonChanged_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::Function_MetaDataParams), Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::VWEquipmentMenu_eventAssetListSelectonChanged_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UVWEquipmentMenu_AttachmentStoreLoadedCallback_Statics
 	{
@@ -135,6 +215,44 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics
+	{
+		struct VWEquipmentMenu_eventScalarValueChanged_Parms
+		{
+			uint8 Value;
+			uint8 StartIndex;
+		};
+		static const UECodeGen_Private::FBytePropertyParams NewProp_Value;
+		static const UECodeGen_Private::FBytePropertyParams NewProp_StartIndex;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWEquipmentMenu_eventScalarValueChanged_Parms, Value), nullptr, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::NewProp_StartIndex = { "StartIndex", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWEquipmentMenu_eventScalarValueChanged_Parms, StartIndex), nullptr, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::NewProp_Value,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::NewProp_StartIndex,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Private/UI/Loadout/VWEquipmentMenu.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UVWEquipmentMenu, nullptr, "ScalarValueChanged", nullptr, nullptr, Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::PropPointers), sizeof(Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::VWEquipmentMenu_eventScalarValueChanged_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::Function_MetaDataParams), Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::VWEquipmentMenu_eventScalarValueChanged_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment_Statics
 	{
 		struct VWEquipmentMenu_eventSelectAttachment_Parms
@@ -199,6 +317,82 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics
+	{
+		struct VWEquipmentMenu_eventVector2ValueChanged_Parms
+		{
+			FVector2D Value;
+			uint8 StartIndex;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+		static const UECodeGen_Private::FBytePropertyParams NewProp_StartIndex;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWEquipmentMenu_eventVector2ValueChanged_Parms, Value), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::NewProp_StartIndex = { "StartIndex", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWEquipmentMenu_eventVector2ValueChanged_Parms, StartIndex), nullptr, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::NewProp_Value,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::NewProp_StartIndex,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Private/UI/Loadout/VWEquipmentMenu.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UVWEquipmentMenu, nullptr, "Vector2ValueChanged", nullptr, nullptr, Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::PropPointers), sizeof(Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::VWEquipmentMenu_eventVector2ValueChanged_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::Function_MetaDataParams), Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::VWEquipmentMenu_eventVector2ValueChanged_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics
+	{
+		struct VWEquipmentMenu_eventVector3ValueChanged_Parms
+		{
+			FVector Value;
+			uint8 StartIndex;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Value;
+		static const UECodeGen_Private::FBytePropertyParams NewProp_StartIndex;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWEquipmentMenu_eventVector3ValueChanged_Parms, Value), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::NewProp_StartIndex = { "StartIndex", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWEquipmentMenu_eventVector3ValueChanged_Parms, StartIndex), nullptr, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::NewProp_Value,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::NewProp_StartIndex,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Private/UI/Loadout/VWEquipmentMenu.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UVWEquipmentMenu, nullptr, "Vector3ValueChanged", nullptr, nullptr, Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::PropPointers), sizeof(Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::VWEquipmentMenu_eventVector3ValueChanged_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::Function_MetaDataParams), Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::VWEquipmentMenu_eventVector3ValueChanged_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UVWEquipmentMenu);
 	UClass* Z_Construct_UClass_UVWEquipmentMenu_NoRegister()
 	{
@@ -244,6 +438,10 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_AttachmentButtonClass;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentAttachmentSlotIndex_MetaData[];
+#endif
+		static const UECodeGen_Private::FBytePropertyParams NewProp_CurrentAttachmentSlotIndex;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttachmentStoreButtonClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_AttachmentStoreButtonClass;
@@ -261,10 +459,14 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipmentMenu_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UVWEquipmentMenu_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UVWEquipmentMenu_AssetListSelectonChanged, "AssetListSelectonChanged" }, // 3953762492
 		{ &Z_Construct_UFunction_UVWEquipmentMenu_AttachmentStoreLoadedCallback, "AttachmentStoreLoadedCallback" }, // 3327344195
 		{ &Z_Construct_UFunction_UVWEquipmentMenu_OpenAttachmentStore, "OpenAttachmentStore" }, // 1298323598
+		{ &Z_Construct_UFunction_UVWEquipmentMenu_ScalarValueChanged, "ScalarValueChanged" }, // 653328272
 		{ &Z_Construct_UFunction_UVWEquipmentMenu_SelectAttachment, "SelectAttachment" }, // 723858282
 		{ &Z_Construct_UFunction_UVWEquipmentMenu_SetupAttachmentButtons, "SetupAttachmentButtons" }, // 1740667114
+		{ &Z_Construct_UFunction_UVWEquipmentMenu_Vector2ValueChanged, "Vector2ValueChanged" }, // 1246625565
+		{ &Z_Construct_UFunction_UVWEquipmentMenu_Vector3ValueChanged, "Vector3ValueChanged" }, // 2451190918
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipmentMenu_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -333,6 +535,12 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentButtonClass = { "AttachmentButtonClass", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWEquipmentMenu, AttachmentButtonClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UVWAttachmentButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentButtonClass_MetaData), Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentButtonClass_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_CurrentAttachmentSlotIndex_MetaData[] = {
+		{ "ModuleRelativePath", "Private/UI/Loadout/VWEquipmentMenu.h" },
+	};
+#endif
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_CurrentAttachmentSlotIndex = { "CurrentAttachmentSlotIndex", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UVWEquipmentMenu, CurrentAttachmentSlotIndex), nullptr, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_CurrentAttachmentSlotIndex_MetaData), Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_CurrentAttachmentSlotIndex_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentStoreButtonClass_MetaData[] = {
 		{ "Category", "VWEquipmentMenu" },
 		{ "ModuleRelativePath", "Private/UI/Loadout/VWEquipmentMenu.h" },
@@ -355,6 +563,7 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentStoreScrollBox,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionsScrollBox,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentButtonClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_CurrentAttachmentSlotIndex,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentStoreButtonClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UVWEquipmentMenu_Statics::NewProp_AttachmentOptionWidgetClass,
 	};
@@ -397,9 +606,9 @@ void EmptyLinkFunctionForGeneratedCodeVWEquipmentMenu() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UVWEquipmentMenu, UVWEquipmentMenu::StaticClass, TEXT("UVWEquipmentMenu"), &Z_Registration_Info_UClass_UVWEquipmentMenu, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWEquipmentMenu), 3255608783U) },
+		{ Z_Construct_UClass_UVWEquipmentMenu, UVWEquipmentMenu::StaticClass, TEXT("UVWEquipmentMenu"), &Z_Registration_Info_UClass_UVWEquipmentMenu, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWEquipmentMenu), 3067210185U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_4076827489(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_617829174(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

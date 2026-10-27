@@ -228,7 +228,7 @@ void UVWLoadoutWidget::ShowEquipmentMenuForSlot(const EEquipmentSlot& InEquipmen
 	
 	SetVisibility(ESlateVisibility::Collapsed);
 	
-	UVWEquipmentMenu* EquipmentMenu = Cast<UVWEquipmentMenu>(CreateWidget(this, EquipmentMenuClass));
+	EquipmentMenu = Cast<UVWEquipmentMenu>(CreateWidget(this, EquipmentMenuClass));
 	if(!EquipmentMenu)
 	{
 		return;
@@ -271,7 +271,7 @@ void UVWLoadoutWidget::SetupEquipmentMenuViewer(int InEquipmentSlot)
 	if(!SaveGame)
 	{
 		UVWSaveGame* NewSaveGame = Cast<UVWSaveGame>(UGameplayStatics::CreateSaveGameObject(UVWSaveGame::StaticClass()));
-		GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Orange, "");
+		
 		UGameplayStatics::SaveGameToSlot(NewSaveGame, "SaveGame", 0);
 		SaveGame = NewSaveGame;
 	}
@@ -331,6 +331,7 @@ void UVWLoadoutWidget::EquipmentViewerAttachmentsLoadedCallback()
 		if(MeshAsset)
 		{
 			EquipmentMenuViewer->AttachmentMeshes[i]->SetSkeletalMeshAsset(MeshAsset);
+
 			Attachment->InitializeOptions(
 				EquipmentMenuViewer->AttachmentMeshes[i],
 				SaveGame->Loadouts[SaveGame->SelectedLoadout].Equipment[CurrentEquipmentSlot].GetAttachmentOptionsForSlot(i)

@@ -31,22 +31,35 @@ public:
 
 	UPROPERTY()
 	UVWEquipmentMenu* EquipmentMenu;
+
+	UPROPERTY()
+	uint8 OptionStartIndex;
 	
 
 	UPROPERTY(meta = (BindWidget))
 	USlider* ScalarValue;
 
+	UFUNCTION()
+	void ScalarValueChanged(float Value);
+
 	UPROPERTY(meta = (BindWidget))
 	USlider* XValue;
-
+	
 	UPROPERTY(meta = (BindWidget))
 	USlider* YValue;
-
+	
 	UPROPERTY(meta = (BindWidget))
 	USlider* ZValue;
 
+	UFUNCTION()
+	void VectorValueChanged(float Value);
+
+	
+
 	UPROPERTY(meta = (BindWidget))
 	UComboBoxKey* AssetList;
+
+	
 	
 	
 };

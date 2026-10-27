@@ -18,11 +18,12 @@ void UVWEA_Ironsight::InitializeOptions(USkeletalMeshComponent* MeshComponent, c
 		&& SavedOptions.Num()>=3)
 	{
 		//If there is, make a dynamic material instance and set it as the mesh's material for the second slot
-		UMaterialInstanceDynamic* Glow1 = UMaterialInstanceDynamic::Create(MeshComponent->GetMaterial(MeshComponent->GetMaterialIndex("GlowFront")), MeshComponent); //assume that there is a glow material in the second slot
+		UMaterialInstanceDynamic* Glow1 = UMaterialInstanceDynamic::Create(MeshComponent->GetMaterial(MeshComponent->GetMaterialIndex("GlowFront")), MeshComponent); 
 		
 		if (Options[0].Type == EAttachmentOptionType::Vector3)
 		{
-			Glow1->SetVectorParameterValue("Color1", FVector(SavedOptions[0], SavedOptions[1], SavedOptions[2]));
+			GEngine->AddOnScreenDebugMessage(0, 5, FColor::Orange, FVector(SavedOptions[0], SavedOptions[1], SavedOptions[2]).ToString());
+			Glow1->SetVectorParameterValue("Color", FVector(SavedOptions[0], SavedOptions[1], SavedOptions[2]));
 			//We actually used this option, so to avoid reusing it we offset the next indices by 3
 			OptionIndexOffset += 3;
 		}
@@ -37,7 +38,7 @@ void UVWEA_Ironsight::InitializeOptions(USkeletalMeshComponent* MeshComponent, c
 
 		if (Options[1].Type == EAttachmentOptionType::Vector3)
 		{
-			Glow2->SetVectorParameterValue("Color2", FVector(SavedOptions[0 + OptionIndexOffset], SavedOptions[1 + OptionIndexOffset], SavedOptions[2 + OptionIndexOffset]));
+			Glow2->SetVectorParameterValue("Color", FVector(SavedOptions[0 + OptionIndexOffset], SavedOptions[1 + OptionIndexOffset], SavedOptions[2 + OptionIndexOffset]));
 			OptionIndexOffset += 3;
 		}
 

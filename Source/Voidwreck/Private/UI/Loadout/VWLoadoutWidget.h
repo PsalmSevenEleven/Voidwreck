@@ -86,6 +86,9 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TSubclassOf<UVWEquipmentMenu> EquipmentMenuClass;
+
+	UPROPERTY()
+	UVWEquipmentMenu* EquipmentMenu;
 	
 	TArray<FPrimaryAssetId> AttachmentsForEquipmentViewer;
 	

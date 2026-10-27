@@ -56,6 +56,9 @@ public:
 	UFUNCTION()
 	void OpenAttachmentStore(int32 AttachmentSlotIndex);
 
+	UPROPERTY()
+	uint8 CurrentAttachmentSlotIndex;
+
 	TArray<FPrimaryAssetId> StoreAttachmentsToLoad;
 	
 	UFUNCTION()
@@ -69,5 +72,17 @@ public:
 
 	UFUNCTION()
 	void SelectAttachment(int32 AttachmentSlot, int32 AttachmentIndex, UVWEquipmentAttachment* Attachment);
+
+	UFUNCTION()
+	void ScalarValueChanged(uint8 Value, uint8 StartIndex);
+
+	UFUNCTION()
+	void Vector2ValueChanged(FVector2D Value, uint8 StartIndex);
+
+	UFUNCTION()
+	void Vector3ValueChanged(FVector Value, uint8 StartIndex);
+
+	UFUNCTION()
+	void AssetListSelectonChanged(uint8 Selection, uint8 StartIndex);
 	
 };

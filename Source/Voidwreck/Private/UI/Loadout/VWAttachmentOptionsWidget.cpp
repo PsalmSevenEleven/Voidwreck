@@ -3,10 +3,16 @@
 
 #include "UI/Loadout/VWAttachmentOptionsWidget.h"
 
+#include "VWEquipmentMenu.h"
+
 void UVWAttachmentOptionsWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
-	//TODO - add events for each of the values changing
+	ScalarValue->OnValueChanged.AddDynamic(this, &UVWAttachmentOptionsWidget::ScalarValueChanged);
+	XValue->OnValueChanged.AddDynamic(this, &UVWAttachmentOptionsWidget::VectorValueChanged);
+	YValue->OnValueChanged.AddDynamic(this, &UVWAttachmentOptionsWidget::VectorValueChanged);
+	ZValue->OnValueChanged.AddDynamic(this, &UVWAttachmentOptionsWidget::VectorValueChanged);
+	//AssetList->OnSelectionChanged.AddDynamic(this, &UVWAttachmentOptionsWidget::AssetListChanged);
 }
 
 void UVWAttachmentOptionsWidget::Setup(FAttachmentCustomizationOption& InOption, TArray<uint8>& SavedValues)
@@ -81,4 +87,22 @@ void UVWAttachmentOptionsWidget::Setup(FAttachmentCustomizationOption& InOption,
 
 	default: break;
 	}
+}
+
+void UVWAttachmentOptionsWidget::ScalarValueChanged(float Value)
+{
+	EquipmentMenu->ScalarValueChanged(Value, OptionStartIndex);
+}
+
+void UVWAttachmentOptionsWidget::VectorValueChanged(float Value)
+{
+	if (Type == Vector2)
+	{
+		EquipmentMenu->Vector2ValueChanged(FVector2D(XValue->GetValue(), YValue->GetValue()), OptionStartIndex);
+	}
+	else
+	{
+		EquipmentMenu->Vector3ValueChanged(FVector(XValue->GetValue(), YValue->GetValue(), ZValue->GetValue()), OptionStartIndex);
+	}
+	
 }

@@ -20,6 +20,8 @@ struct FAttachmentCustomizationOption;
 #define FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWAttachmentOptionsWidget_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWAttachmentOptionsWidget_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execVectorValueChanged); \
+	DECLARE_FUNCTION(execScalarValueChanged); \
 	DECLARE_FUNCTION(execSetup);
 
 

@@ -20,6 +20,10 @@ class UVWEquipmentAttachment;
 #define FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_23_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWEquipmentMenu_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execAssetListSelectonChanged); \
+	DECLARE_FUNCTION(execVector3ValueChanged); \
+	DECLARE_FUNCTION(execVector2ValueChanged); \
+	DECLARE_FUNCTION(execScalarValueChanged); \
 	DECLARE_FUNCTION(execSelectAttachment); \
 	DECLARE_FUNCTION(execAttachmentStoreLoadedCallback); \
 	DECLARE_FUNCTION(execOpenAttachmentStore); \

@@ -24,7 +24,7 @@ void UVWEquipmentMenu::SetupAttachmentButtons()
 		Child->RemoveFromParent();
 	}
 	
-	//GEngine->AddOnScreenDebugMessage(-1,5,FColor::Green, "Setting up attachment buttons");
+	
 	
 	for(int i = 0; i < CurrentEquipment->AttachmentSlots.Num(); i++)
 	{
@@ -40,6 +40,8 @@ void UVWEquipmentMenu::SetupAttachmentButtons()
 
 void UVWEquipmentMenu::OpenAttachmentStore(int32 AttachmentSlotIndex)
 {
+	AttachmentOptionsScrollBox->ClearChildren();
+	
 	AttachmentStoreScrollBox->SetVisibility(ESlateVisibility::Visible);
 
 	for(UWidget* Child : AttachmentStoreScrollBox->GetAllChildren())
@@ -52,6 +54,8 @@ void UVWEquipmentMenu::OpenAttachmentStore(int32 AttachmentSlotIndex)
 	{
 		return;
 	}
+
+	CurrentAttachmentSlotIndex = AttachmentSlotIndex;
 	
 	AssetManager->UnloadPrimaryAssets(StoreAttachmentsToLoad);
 
@@ -108,7 +112,7 @@ void UVWEquipmentMenu::SelectAttachment(int32 AttachmentSlot, int32 AttachmentIn
 	
 	if(LoadoutWidget->SaveGame)
 	{
-		LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot].AttachmentIndices[AttachmentSlot] = AttachmentIndex;
+		LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot].AttachmentIndices[CurrentAttachmentSlotIndex] = AttachmentIndex;
 		UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
 	}
 
@@ -122,8 +126,10 @@ void UVWEquipmentMenu::SelectAttachment(int32 AttachmentSlot, int32 AttachmentIn
 	{
 		UVWAttachmentOptionsWidget* NewOptionWidget = CreateWidget<UVWAttachmentOptionsWidget>(this, AttachmentOptionWidgetClass);
 		
-		TArray<uint8> SavedOptions = LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot].GetAttachmentOptionsForSlot(AttachmentSlot);
+		TArray<uint8> SavedOptions = LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot].GetAttachmentOptionsForSlot(CurrentAttachmentSlotIndex);
 		TArray<uint8> OptionsForWidget;
+		NewOptionWidget->OptionStartIndex = IndexOffset + i;
+		NewOptionWidget->EquipmentMenu = this;
 		
 		switch (Attachment->Options[i].Type)
 		{
@@ -160,5 +166,67 @@ void UVWEquipmentMenu::SelectAttachment(int32 AttachmentSlot, int32 AttachmentIn
 		AttachmentOptionsScrollBox->AddChild(NewOptionWidget);
 	}
 }
+
+void UVWEquipmentMenu::ScalarValueChanged(uint8 Value, uint8 StartIndex)
+{
+	
+	FEquipmentOptions& Equipment = LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot];
+	uint8 SelectedEquipment = Equipment.EquipmentIndex;
+	TArray<uint8>& AttachmentIndices = Equipment.AttachmentIndices;
+	TArray<uint8>& Options = Equipment.SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]];
+
+	Options[StartIndex] = Value;
+
+	UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
+	LoadoutWidget->SetupEquipmentMenuViewer(LoadoutWidget->CurrentEquipmentSlot);
+	
+}
+
+void UVWEquipmentMenu::Vector2ValueChanged(FVector2D Value, uint8 StartIndex)
+{
+	FEquipmentOptions& Equipment = LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot];
+	uint8 SelectedEquipment = Equipment.EquipmentIndex;
+	TArray<uint8>& AttachmentIndices = Equipment.AttachmentIndices;
+	TArray<uint8>& Options = Equipment.SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]];
+
+	Options[StartIndex] = Value.X;
+	Options[StartIndex + 1] = Value.Y;
+
+	UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
+	LoadoutWidget->SetupEquipmentMenuViewer(LoadoutWidget->CurrentEquipmentSlot);
+}
+
+void UVWEquipmentMenu::Vector3ValueChanged(FVector Value, uint8 StartIndex)
+{
+	FEquipmentOptions& Equipment = LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot];
+	uint8 SelectedEquipment = Equipment.EquipmentIndex;
+	TArray<uint8>& AttachmentIndices = Equipment.AttachmentIndices;
+	TArray<uint8>& Options = Equipment.SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]];
+
+	LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot].SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]][StartIndex] = Value.X;
+	LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot].SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]][StartIndex + 1] = Value.Y;
+	LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot].SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]][StartIndex + 2] = Value.Z;
+	// Options[StartIndex] = Value.X;
+	// Options[StartIndex + 1] = Value.Y;
+	// Options[StartIndex + 2] = Value.Z;
+
+	UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
+	LoadoutWidget->SetupEquipmentMenuViewer(LoadoutWidget->CurrentEquipmentSlot);
+}
+
+void UVWEquipmentMenu::AssetListSelectonChanged(uint8 Selection, uint8 StartIndex)
+{
+	FEquipmentOptions& Equipment = LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot];
+	uint8 SelectedEquipment = Equipment.EquipmentIndex;
+	TArray<uint8>& AttachmentIndices = Equipment.AttachmentIndices;
+	TArray<uint8>& Options = Equipment.SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]];
+
+	Options[StartIndex] = Selection;
+
+	UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
+	LoadoutWidget->SetupEquipmentMenuViewer(LoadoutWidget->CurrentEquipmentSlot);
+}
+
+
 
 
