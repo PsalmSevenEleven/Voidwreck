@@ -6,8 +6,55 @@
 #include "GameFramework/SaveGame.h"
 #include "VWSaveGame.generated.h"
 
+//Words cannot express how much I hate having this many structs, but I have to wrap them this way to allow me to save them to a file.
+//Each represents a level of a 4d array, which I'll explain more in-depth later.
+//The one benefit of having to declare each layer as its own struct is that initialization is much easier
+USTRUCT()
+struct FSavedAttachmentOptions
+{
+	GENERATED_BODY()
+public:
+	FSavedAttachmentOptions();
+	
+	UPROPERTY(SaveGame)
+	TArray<uint8> Options;
+};
 
+USTRUCT()
+struct FSavedAttachmentSlotOptions
+{
+	GENERATED_BODY()
+public:
 
+	FSavedAttachmentSlotOptions();
+	
+	UPROPERTY(SaveGame)
+	TArray<FSavedAttachmentOptions> Attachment;
+};
+
+USTRUCT()
+struct FSavedEquipmentOptions
+{
+	GENERATED_BODY()
+public:
+
+	FSavedEquipmentOptions();
+	
+	UPROPERTY(SaveGame)
+	TArray<FSavedAttachmentSlotOptions> Slot;
+};
+
+USTRUCT()
+struct FSavedEquipmentSlotOptions
+{
+	GENERATED_BODY()
+public:
+
+	FSavedEquipmentSlotOptions();
+	
+	UPROPERTY(SaveGame)
+	TArray<FSavedEquipmentOptions> Equipment;
+};
 
 USTRUCT(BlueprintType)
 struct FEquipmentOptions
@@ -25,7 +72,8 @@ public:
 	UPROPERTY(SaveGame)
 	TArray<uint8> AttachmentIndices;
 
-	//This 4d array of uint8's is a little opaque, so I'll explain.
+	//This FSavedEquipmentSlotOptions struct is is a little opaque, so I'll explain.
+	//It really represents a 4d array of uint8's, with each layer wrapped in a struct so that I can save it to a file.
 	//Each element in the top-level array represents a different equipment, and each element of the array below it is a different attachment slot.
 	//Each index in the next is an individual attachment, and the lowest-level arrays hold the individual values for any options the attachment may have for customization.
 
@@ -48,7 +96,8 @@ public:
 	//We use this system to make sure that any customization the player has done in the attachment screen (colors, locations, etc) doesn't need to be redone
 	//every time a player reselects an attachment.
 	//Hopefully, this over-engineered solution will reduce later tech debt and make adding new content a breeze
-	TArray<TArray<TArray<TArray<uint8>>>> SavedAttachmentOptions;
+	UPROPERTY(SaveGame)
+	FSavedEquipmentSlotOptions SavedAttachmentOptions;
 
 	//Returns the options for a given slot on the current equipment
 	TArray<uint8> GetAttachmentOptionsForSlot(uint8 InAttachmentSlot);

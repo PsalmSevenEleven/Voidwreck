@@ -5,6 +5,35 @@
 
 #include "Player/Equipment/VWEquipment.h"
 
+FSavedAttachmentOptions::FSavedAttachmentOptions()
+{
+	Options = {0,0,0,0,0,0,0,0};
+}
+
+FSavedAttachmentSlotOptions::FSavedAttachmentSlotOptions()
+{
+	for(uint8 i = 0; i<10; i++)
+	{
+		Attachment.Emplace(FSavedAttachmentOptions());
+	}
+}
+
+FSavedEquipmentOptions::FSavedEquipmentOptions()
+{
+	for(uint8 i = 0; i<10; i++)
+	{
+		Slot.Emplace(FSavedAttachmentSlotOptions());
+	}
+}
+
+FSavedEquipmentSlotOptions::FSavedEquipmentSlotOptions()
+{
+	for(uint8 i = 0; i<20; i++)
+	{
+		Equipment.Emplace(FSavedEquipmentOptions());
+	}
+}
+
 FEquipmentOptions::FEquipmentOptions()
 {
 	EquipmentIndex = 0;
@@ -15,36 +44,20 @@ FEquipmentOptions::FEquipmentOptions()
 	{
 		AttachmentIndices.Emplace(0);
 	}
-	
-	//TODO - we're making a lot of assumptions here about the numbers of equipment, attachments, and options that will be in the game,
-	//and this should probably be updated dynamically as more content is added.
-	//Add checks to anything that has to draw from the savegame and add default arrays if needed
-	
-	for(int Equipment = 0; Equipment<30; Equipment++)
-	{
-		SavedAttachmentOptions.Emplace(TArray<TArray<TArray<uint8>>>());
-		
-		for (int Slot = 0; Slot<10; Slot++)
-		{
-			SavedAttachmentOptions[Equipment].Emplace(TArray<TArray<uint8>>());
-			
-			for(int Attachment = 0; Attachment<8; Attachment++)
-			{
-				SavedAttachmentOptions[Equipment][Slot].Emplace(TArray<uint8>({0,0,0,0,0,0,0}));
-			}
-		}
-	}
+
+	SavedAttachmentOptions = FSavedEquipmentSlotOptions();
 }
 
 
 TArray<uint8> FEquipmentOptions::GetAttachmentOptionsForSlot(uint8 InAttachmentSlot)
 {
-	return SavedAttachmentOptions[EquipmentIndex][InAttachmentSlot][AttachmentIndices[InAttachmentSlot]];
+	return SavedAttachmentOptions.Equipment[EquipmentIndex].Slot[InAttachmentSlot].Attachment[AttachmentIndices[InAttachmentSlot]].Options;
+	
 }
 
 TArray<uint8> FEquipmentOptions::GetAttachmentOptions(uint8 InEquipmentIndex, uint8 InAttachmentSlot)
 {
-	return SavedAttachmentOptions[InEquipmentIndex][InAttachmentSlot][AttachmentIndices[InAttachmentSlot]];
+	return SavedAttachmentOptions.Equipment[InEquipmentIndex].Slot[InAttachmentSlot].Attachment[AttachmentIndices[InAttachmentSlot]].Options;
 }
 
 FLoadout::FLoadout()

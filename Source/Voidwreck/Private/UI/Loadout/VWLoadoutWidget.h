@@ -116,7 +116,7 @@ public:
 	void ShowEquipmentMenuForSlot(const EEquipmentSlot& InEquipmentSlot);
 
 	UFUNCTION()
-	void SetupEquipmentMenuViewer(int InEquipmentSlot);
+	void SetupEquipmentMenuViewer(uint8 InEquipmentSlot);
 
 
 	UPROPERTY(BlueprintReadWrite)

@@ -173,7 +173,7 @@ void UVWEquipmentMenu::ScalarValueChanged(uint8 Value, uint8 StartIndex)
 	FEquipmentOptions& Equipment = LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot];
 	uint8 SelectedEquipment = Equipment.EquipmentIndex;
 	TArray<uint8>& AttachmentIndices = Equipment.AttachmentIndices;
-	TArray<uint8>& Options = Equipment.SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]];
+	TArray<uint8>& Options = Equipment.SavedAttachmentOptions.Equipment[SelectedEquipment].Slot[CurrentAttachmentSlotIndex].Attachment[AttachmentIndices[CurrentAttachmentSlotIndex]].Options;
 
 	Options[StartIndex] = Value;
 
@@ -187,7 +187,7 @@ void UVWEquipmentMenu::Vector2ValueChanged(FVector2D Value, uint8 StartIndex)
 	FEquipmentOptions& Equipment = LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot];
 	uint8 SelectedEquipment = Equipment.EquipmentIndex;
 	TArray<uint8>& AttachmentIndices = Equipment.AttachmentIndices;
-	TArray<uint8>& Options = Equipment.SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]];
+	TArray<uint8>& Options = Equipment.SavedAttachmentOptions.Equipment[SelectedEquipment].Slot[CurrentAttachmentSlotIndex].Attachment[AttachmentIndices[CurrentAttachmentSlotIndex]].Options;
 
 	Options[StartIndex] = Value.X;
 	Options[StartIndex + 1] = Value.Y;
@@ -201,17 +201,16 @@ void UVWEquipmentMenu::Vector3ValueChanged(FVector Value, uint8 StartIndex)
 	FEquipmentOptions& Equipment = LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot];
 	uint8 SelectedEquipment = Equipment.EquipmentIndex;
 	TArray<uint8>& AttachmentIndices = Equipment.AttachmentIndices;
-	TArray<uint8>& Options = Equipment.SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]];
+	TArray<uint8>& Options = Equipment.SavedAttachmentOptions.Equipment[SelectedEquipment].Slot[CurrentAttachmentSlotIndex].Attachment[AttachmentIndices[CurrentAttachmentSlotIndex]].Options;
 
-	LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot].SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]][StartIndex] = Value.X;
-	LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot].SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]][StartIndex + 1] = Value.Y;
-	LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot].SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]][StartIndex + 2] = Value.Z;
-	// Options[StartIndex] = Value.X;
-	// Options[StartIndex + 1] = Value.Y;
-	// Options[StartIndex + 2] = Value.Z;
+	Options[StartIndex] = Value.X;
+	Options[StartIndex + 1] = Value.Y;
+	Options[StartIndex + 2] = Value.Z;
 
 	UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
+	
 	LoadoutWidget->SetupEquipmentMenuViewer(LoadoutWidget->CurrentEquipmentSlot);
+	
 }
 
 void UVWEquipmentMenu::AssetListSelectonChanged(uint8 Selection, uint8 StartIndex)
@@ -219,7 +218,7 @@ void UVWEquipmentMenu::AssetListSelectonChanged(uint8 Selection, uint8 StartInde
 	FEquipmentOptions& Equipment = LoadoutWidget->SaveGame->Loadouts[CurrentLoadoutIndex].Equipment[LoadoutWidget->CurrentEquipmentSlot];
 	uint8 SelectedEquipment = Equipment.EquipmentIndex;
 	TArray<uint8>& AttachmentIndices = Equipment.AttachmentIndices;
-	TArray<uint8>& Options = Equipment.SavedAttachmentOptions[SelectedEquipment][CurrentAttachmentSlotIndex][AttachmentIndices[CurrentAttachmentSlotIndex]];
+	TArray<uint8>& Options = Equipment.SavedAttachmentOptions.Equipment[SelectedEquipment].Slot[CurrentAttachmentSlotIndex].Attachment[AttachmentIndices[CurrentAttachmentSlotIndex]].Options;
 
 	Options[StartIndex] = Selection;
 

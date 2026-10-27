@@ -24,7 +24,7 @@ void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 // End Cross Module References
 	DEFINE_FUNCTION(UVWLoadoutWidget::execSetupEquipmentMenuViewer)
 	{
-		P_GET_PROPERTY(FIntProperty,Z_Param_InEquipmentSlot);
+		P_GET_PROPERTY(FByteProperty,Z_Param_InEquipmentSlot);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->SetupEquipmentMenuViewer(Z_Param_InEquipmentSlot);
@@ -102,16 +102,16 @@ void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 	{
 		struct VWLoadoutWidget_eventSetupEquipmentMenuViewer_Parms
 		{
-			int32 InEquipmentSlot;
+			uint8 InEquipmentSlot;
 		};
-		static const UECodeGen_Private::FIntPropertyParams NewProp_InEquipmentSlot;
+		static const UECodeGen_Private::FBytePropertyParams NewProp_InEquipmentSlot;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UVWLoadoutWidget_SetupEquipmentMenuViewer_Statics::NewProp_InEquipmentSlot = { "InEquipmentSlot", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWLoadoutWidget_eventSetupEquipmentMenuViewer_Parms, InEquipmentSlot), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UVWLoadoutWidget_SetupEquipmentMenuViewer_Statics::NewProp_InEquipmentSlot = { "InEquipmentSlot", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(VWLoadoutWidget_eventSetupEquipmentMenuViewer_Parms, InEquipmentSlot), nullptr, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UVWLoadoutWidget_SetupEquipmentMenuViewer_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UVWLoadoutWidget_SetupEquipmentMenuViewer_Statics::NewProp_InEquipmentSlot,
 	};
@@ -228,7 +228,7 @@ void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UVWLoadoutWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UVWLoadoutWidget_InitMenu, "InitMenu" }, // 825784675
 		{ &Z_Construct_UFunction_UVWLoadoutWidget_LoadLoadout, "LoadLoadout" }, // 1765459741
-		{ &Z_Construct_UFunction_UVWLoadoutWidget_SetupEquipmentMenuViewer, "SetupEquipmentMenuViewer" }, // 2019755859
+		{ &Z_Construct_UFunction_UVWLoadoutWidget_SetupEquipmentMenuViewer, "SetupEquipmentMenuViewer" }, // 2583234870
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UVWLoadoutWidget_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -448,9 +448,9 @@ void EmptyLinkFunctionForGeneratedCodeVWLoadoutWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UVWLoadoutWidget, UVWLoadoutWidget::StaticClass, TEXT("UVWLoadoutWidget"), &Z_Registration_Info_UClass_UVWLoadoutWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWLoadoutWidget), 395375875U) },
+		{ Z_Construct_UClass_UVWLoadoutWidget, UVWLoadoutWidget::StaticClass, TEXT("UVWLoadoutWidget"), &Z_Registration_Info_UClass_UVWLoadoutWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UVWLoadoutWidget), 2675350381U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_1449338015(TEXT("/Script/Voidwreck"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_2717632001(TEXT("/Script/Voidwreck"),
 		Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Caleb_Documents_Unreal_Projects_Voidwreck_Voidwreck_Source_Voidwreck_Private_UI_Loadout_VWLoadoutWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
