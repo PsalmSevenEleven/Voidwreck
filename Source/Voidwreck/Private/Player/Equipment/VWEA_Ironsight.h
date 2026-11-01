@@ -23,4 +23,8 @@ public:
 	//and the last three are the RGB values for the rear posts' emissive color. 
 
 	//This is imperative for the InitializeOptions function to work correctly
+	UPROPERTY()
+	UMaterialInstanceDynamic* Glow1;
+	UPROPERTY()
+	UMaterialInstanceDynamic* Glow2;
 };

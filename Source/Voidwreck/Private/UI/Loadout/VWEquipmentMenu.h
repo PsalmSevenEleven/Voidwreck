@@ -23,6 +23,8 @@ class UVWEquipmentMenu : public UVWUserWidget
 	GENERATED_BODY()
 
 public:
+
+	virtual void BackOut() override;
 	
 	UPROPERTY()
 	UVWLoadoutWidget* LoadoutWidget;

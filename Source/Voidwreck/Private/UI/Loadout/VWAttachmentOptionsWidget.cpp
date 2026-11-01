@@ -12,7 +12,9 @@ void UVWAttachmentOptionsWidget::NativeConstruct()
 	XValue->OnValueChanged.AddDynamic(this, &UVWAttachmentOptionsWidget::VectorValueChanged);
 	YValue->OnValueChanged.AddDynamic(this, &UVWAttachmentOptionsWidget::VectorValueChanged);
 	ZValue->OnValueChanged.AddDynamic(this, &UVWAttachmentOptionsWidget::VectorValueChanged);
+	//TODO make the asset list functional
 	//AssetList->OnSelectionChanged.AddDynamic(this, &UVWAttachmentOptionsWidget::AssetListChanged);
+	
 }
 
 void UVWAttachmentOptionsWidget::Setup(FAttachmentCustomizationOption& InOption, TArray<uint8>& SavedValues)

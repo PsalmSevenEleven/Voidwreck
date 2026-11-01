@@ -16,6 +16,12 @@
 #include "Player/Equipment/VWEquipmentAttachment.h"
 
 
+void UVWEquipmentMenu::BackOut()
+{
+	Super::BackOut();
+
+	UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
+}
 
 void UVWEquipmentMenu::SetupAttachmentButtons()
 {
@@ -176,8 +182,7 @@ void UVWEquipmentMenu::ScalarValueChanged(uint8 Value, uint8 StartIndex)
 	TArray<uint8>& Options = Equipment.SavedAttachmentOptions.Equipment[SelectedEquipment].Slot[CurrentAttachmentSlotIndex].Attachment[AttachmentIndices[CurrentAttachmentSlotIndex]].Options;
 
 	Options[StartIndex] = Value;
-
-	UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
+	
 	LoadoutWidget->SetupEquipmentMenuViewer(LoadoutWidget->CurrentEquipmentSlot);
 	
 }
@@ -191,8 +196,7 @@ void UVWEquipmentMenu::Vector2ValueChanged(FVector2D Value, uint8 StartIndex)
 
 	Options[StartIndex] = Value.X;
 	Options[StartIndex + 1] = Value.Y;
-
-	UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
+	
 	LoadoutWidget->SetupEquipmentMenuViewer(LoadoutWidget->CurrentEquipmentSlot);
 }
 
@@ -206,11 +210,8 @@ void UVWEquipmentMenu::Vector3ValueChanged(FVector Value, uint8 StartIndex)
 	Options[StartIndex] = Value.X;
 	Options[StartIndex + 1] = Value.Y;
 	Options[StartIndex + 2] = Value.Z;
-
-	UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
 	
 	LoadoutWidget->SetupEquipmentMenuViewer(LoadoutWidget->CurrentEquipmentSlot);
-	
 }
 
 void UVWEquipmentMenu::AssetListSelectonChanged(uint8 Selection, uint8 StartIndex)
@@ -221,8 +222,7 @@ void UVWEquipmentMenu::AssetListSelectonChanged(uint8 Selection, uint8 StartInde
 	TArray<uint8>& Options = Equipment.SavedAttachmentOptions.Equipment[SelectedEquipment].Slot[CurrentAttachmentSlotIndex].Attachment[AttachmentIndices[CurrentAttachmentSlotIndex]].Options;
 
 	Options[StartIndex] = Selection;
-
-	UGameplayStatics::SaveGameToSlot(LoadoutWidget->SaveGame, "SaveGame", 0);
+	
 	LoadoutWidget->SetupEquipmentMenuViewer(LoadoutWidget->CurrentEquipmentSlot);
 }
 
